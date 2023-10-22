@@ -3,25 +3,34 @@ import * as Io5Icons from "react-icons/io5";
 import { GiHiking } from "react-icons/gi";
 import { FaPersonSwimming } from "react-icons/fa6";
 import { FaPersonRunning } from "react-icons/fa6";
+import { FaWalking } from "react-icons/fa";
 import { Btn } from "./Btn";
 import { useActivityContext } from "../function"
+import bicycle from "../../assets/img/bicycle.jpg"
+import hiking from "../../assets/img/hiking.jpg"
+import walking from "../../assets/img/walking.jpg"
+import swimming from "../../assets/img/swimming.jpg"
+import running from "../../assets/img/running.jpg"
 
   const activities = [
-    {name: "Hiking", icon: <GiHiking />},
-    {name: "Bicycle", icon: <Io5Icons.IoBicycle />},
-    {name: "Swimming", icon: <FaPersonSwimming />},
-    {name: "Running", icon: <FaPersonRunning />},
-    {name: "Badminton", icon: <FaPersonRunning />},
-    {name: "Create New", icon: <Io5Icons.IoAddCircleSharp />}
+    {name: "Hiking", icon: <GiHiking />, pic: <img src={hiking} />},
+    {name: "Bicycle", icon: <Io5Icons.IoBicycle />, pic: <img src={bicycle} />},
+    {name: "Swimming", icon: <FaPersonSwimming />, pic: <img src={swimming} />},
+    {name: "Running", icon: <FaPersonRunning />, pic: <img src={running} />},
+    {name: "Walking", icon: <FaWalking />, pic: <img src={walking} />},
+    // {name: "Create New", icon: <Io5Icons.IoAddCircleSharp />, pic: "Create New picture"}
   ];
 
 const SelectActivity = () => {
-  const { currentActivity, setActivity} = useActivityContext();
+  //try
+  const { currentActivity, setActivity, currentPicture, setPicture} = useActivityContext();
 
   const handleLeftBtn = () => {
     const currentIndex = activities.findIndex(activity => activity.name === currentActivity);
     const newIndex = (currentIndex - 1 + activities.length) % activities.length;
     setActivity(activities[newIndex].name);
+    //try
+    setPicture(activities[newIndex].pic)
   }
 
   const handleAddClick = () => {
@@ -32,6 +41,8 @@ const SelectActivity = () => {
     const currentIndex = activities.findIndex(activity => activity.name === currentActivity);
     const newIndex = (currentIndex + 1) % activities.length;
     setActivity(activities[newIndex].name);
+    //try
+    setPicture(activities[newIndex].pic)
   }
 
   const currentActivityIndex = activities.findIndex(
@@ -56,7 +67,8 @@ const SelectActivity = () => {
               key={index}
               className={`text-white border border-white text-center rounded-lg flex flex-col justify-center
               items-center p-6 text-xl w-[100px] h-[100px] ${
-                activity.name === currentActivity
+                activity.name === currentActivity ||
+                activity.pic === currentPicture
                   ? "bg-gradient-to-br from-pink-600 to-indigo-700 w-[140px] h-[140px] flex justify-center items-center"
                   : "bg-zinc-700  flex justify-center items-center"
               }  mx-4`}
@@ -71,6 +83,7 @@ const SelectActivity = () => {
           activities={activities}
           currentActivity={currentActivity}
           handleAddClick={handleAddClick}
+          currentPicture={currentPicture}
         />
     </>
   )
