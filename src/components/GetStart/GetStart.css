@@ -1,0 +1,145 @@
+:root {
+    --Pink500-Primaly: #EC4899;
+    --Indigo500-Primaly: #6366f1;
+    --Indigo700-Second: #4338CA;
+    --Background: linear-gradient(180deg, #000 0%, #181616 100%);
+    --Pink500-Indigo700: linear-gradient(135deg, #EC4899 0%, #4338CA 100%);
+    --Whitehighlight: rgba(255, 255, 255, 0.50);
+}
+
+body {
+    height: 100vh;
+    background: var(--BG-Mobile, linear-gradient(180deg, #000 0%, #181616 100%));
+    overflow: hidden;
+}
+
+
+
+ 
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+     }
+}
+
+    .--mobile {
+        display: none;
+    }
+
+    .bg-banner {
+        height: 100vh;
+        /* 100% of the viewport height */
+        background-image: url('../../assets/img/Getstartedbanner.jpeg');
+        /* Replace 'path/to/your-image.jpg' with the actual path to your image file */
+        background-size: cover;
+        /* Ensures the image covers the entire container */
+        background-repeat: no-repeat;
+        /* Prevents the image from repeating */
+        background-position: right;
+        /* Centers the background image */
+    }
+
+
+    .getStarted_desktop {
+        width: 400px;
+        height: 400px;
+        z-index: 2;
+        position: relative;
+        /* border: solid 2px white; */
+        border-radius: 100%;
+    }
+
+    .getStarted_desktop img {
+        position: absolute;
+        width: 100%;
+    }
+
+    .set-spin_desktop {
+        animation: spin 2s linear infinite;
+        width: 400px;
+        height: 400px;
+        border-radius: 100%;
+
+    }
+
+    @keyframes spin {
+
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    .NeonPink {
+        width: 50%;
+        height: 50%;
+        background: var(--Pink500-Primaly);
+        filter: blur(110px);
+        z-index: 0;
+    }
+
+    .NeonIndigo {
+        width: 50%;
+        height: 50%;
+        float: right;
+        background: var(--Indigo700-Second);
+        filter: blur(110px);
+        z-index: 0;
+    }
+
+
+    .btn-color{
+        background: linear-gradient(320deg, #3A70F7 30%, var(--Pink500-Primaly) 70%);
+        border-radius: 0.5rem;
+        transition: 0.5s ease-in;
+    }
+
+    .btn-color:hover {
+        box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
+        /* box-shadow:  -50px 0px 100px var(--Pink500-Primaly), 50px 10px 100px var(--Indigo700-Second); */
+        outline-offset: 15px;
+        text-shadow: 1px 1px 2px #427388; 
+      }
+      
+
+@media screen and (max-width: 425px) {
+    .getStarted_desktop {
+        width: 300px;
+        height: 300px;
+    }
+
+    .set-spin_desktop {
+        animation: spin 2s linear infinite;
+        width: 300px;
+        height: 300px;
+        position: relative;
+        /* border: 10px solid rgb(255, 255, 255); */
+        border-radius: 100%;
+
+    }
+
+    .NeonPink {
+        width: 50%;
+        height: 50%;
+        background: var(--Pink500-Primaly);
+        filter: blur(100px);
+        z-index: 0;
+    }
+
+    .NeonIndigo {
+        width: 50%;
+        height: 50%;
+        float: right;
+        background: var(--Indigo700-Second);
+        filter: blur(100px);
+        z-index: 0;
+    }
+
+}
+

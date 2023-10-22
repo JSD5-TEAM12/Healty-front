@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Genos:wght@400;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Genos', sans-serif;
+ 
+}
+
+body {
+  background-image: url('/src/assets/img/Mobile_Frame_BG.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  animation: fadeInAnimation ease 1s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+  

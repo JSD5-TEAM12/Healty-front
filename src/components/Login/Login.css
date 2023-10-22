@@ -1,0 +1,63 @@
+:root {
+    --Pink500-Primaly: #EC4899;
+    --Indigo500-Primaly: #6366f1;
+    --Indigo700-Second: #4338CA;
+    --Background: linear-gradient(180deg, #000 0%, #181616 100%);
+    --Pink500-Indigo700: linear-gradient(135deg, #EC4899 0%, #4338CA 100%);
+    --btn-neon: linear-gradient(90deg, #EC4899 0%, #ec489a25 40%, #4438ca25 60%, #4338CA 100%);
+    --btn-neon-focus: linear-gradient(90deg, #EC4899 0%, #4338CA 100%);
+    --Whitehighlight: rgba(255, 255, 255, 0.50);
+    --neonbg: linear-gradient(90deg, #EC4899 48.72%, #6366F1 49.3%);
+}
+
+body {
+    height: 100vh;
+    /* background: var(--BG-Mobile, linear-gradient(180deg, #000 0%, #181616 100%)); */
+    background-color: #EC4899;
+    animation: fadeInAnimation ease 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+
+@keyframes fade-in {
+    0% {
+        border: 2px solid transparent;
+        border-image: var(--btn-neon);
+        border-image-slice: 1;
+    }
+
+    50% {
+        border: 2px solid transparent;
+        border-image: var(--btn-neon-focus);
+        border-image-slice: 1;
+    }
+
+    100% {
+        border: 2px solid transparent;
+        border-image: var(--btn-neon);
+        border-image-slice: 1;
+        transition: background 1s;
+
+    }
+}
+
+.btn_button {
+    border: 2px solid transparent;
+    border-image: var(--btn-neon);
+    border-image-slice: 1;
+    transition: background 1s;
+    /* Apply the fade-in animation */
+
+}
+
+.btn_button:hover {
+    background: linear-gradient(90deg, var(--Pink500-Primaly) 0%, var(--Indigo700-Second) 100%);
+    background-size: cover;
+
+}
+
+
+.fade-in {
+    animation: fade-in 2s ease infinite;
+}
