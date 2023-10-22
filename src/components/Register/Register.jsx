@@ -75,7 +75,7 @@ const Register = () => {
     }
   
 
-    const response = await axios.post('http://localhost:5000/register', requestData)
+    const response = await axios.post('https://healthy-impressed.onrender.com/register', requestData)
     navigate('/login');
 
   }
