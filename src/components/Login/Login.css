@@ -12,11 +12,18 @@
 
 body {
     height: 100vh;
-    /* background: var(--BG-Mobile, linear-gradient(180deg, #000 0%, #181616 100%)); */
-    background-color: #EC4899;
+    background: var(--BG-Mobile, linear-gradient(180deg, #000 0%, #181616 100%));
     animation: fadeInAnimation ease 1s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
+}
+
+
+.backgroundMain{
+    background-image: url('../../assets/img/20-SON01830.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh; /* Equivalent to h-screen in Tailwind CSS */
 }
 
 
