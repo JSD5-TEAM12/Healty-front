@@ -16,20 +16,22 @@ const Login = () => {
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-
+  
+  console.log("username => ",username ,"password => ",password)
+  
   const handleLogin = async (e) => {
     e.preventDefault();
+    console.log("handleLogin is called");
     try {
       const loginData = {
         username: username,
         password: password,
       };
       // console.log(loginData);
-      // const response = await axios.post("/auth/login", loginData);
-      const response = await axios.post(
-        import.meta.env.VITE_APP_BACKEND_URL + "/auth/login",
+      const response = await axios.post("http://localhost:8050/login",
         loginData
       );
+      console.log(response)
 
       if (response) {
         window.localStorage.setItem("token", response.data.token);
@@ -58,7 +60,7 @@ const Login = () => {
         <img src={Logo} alt="logo" />
 
         <section id="form-login" className="grid gap-4 w-full">
-          <form className="flex flex-col xl:max-w-4xl xl:text-base">
+          <form  onSubmit={handleLogin} className="flex flex-col xl:max-w-4xl xl:text-base">
             <label className={`${inputStyles.label}`}>Username</label>
             <div className="relative">
               <IoPersonSharp className="absolute left-3 top-1/2 transform -translate-y-1/2 fill-white" />
@@ -97,8 +99,8 @@ const Login = () => {
           <article className="w-full overflow-hidden rounded-md">
             <button
               className="border-2 btn_button fade-in p-3  w-full text-white text-xl"
-              onClick={()=>handleLogin(username,password)}
-              type="button"
+              onClick={()=>handleLogin}
+              type="submit"
             >
               Login
             </button>

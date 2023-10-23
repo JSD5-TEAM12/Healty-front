@@ -74,8 +74,8 @@ const Register = () => {
       form.append(key, requestData[key]);
     }
   
-
-    const response = await axios.post('https://healthy-impressed.onrender.com/register', requestData)
+// 
+    const response = await axios.post(import.meta.env.VITE_APP_BACKEND_URL+"/register", requestData)
     navigate('/login');
 
   }
