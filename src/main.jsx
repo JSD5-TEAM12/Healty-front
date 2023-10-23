@@ -33,6 +33,8 @@ import { ActivityContextProvider } from "./components/function.jsx";
     return children;
 }
 
+//   return children;
+// }
 
 
 const router = createBrowserRouter([
@@ -46,58 +48,58 @@ const router = createBrowserRouter([
       {
         path: "/Home",
         element: (
-          <AuthProtectedRoute>
+          // <AuthProtectedRoute>
             <Home />
-          </AuthProtectedRoute>
+          // </AuthProtectedRoute>
         ),
       },
       {
         path: "/Profile",
         element: (
-          <AuthProtectedRoute>
+          // <AuthProtectedRoute>
             <Profile />
-          </AuthProtectedRoute>
-        )
+          // </AuthProtectedRoute>
+        ),
       },
       {
         path: "/ActivityCard",
         element: (
-          <AuthProtectedRoute>
+          // <AuthProtectedRoute>
             <ActivityCard />
-          </AuthProtectedRoute>
-        )
+          // </AuthProtectedRoute>
+        ),
       },
       {
         path: "/Advice",
         element: (
-          <AuthProtectedRoute>
+          // <AuthProtectedRoute>
             <Advice />
-          </AuthProtectedRoute>
-        )
+          // </AuthProtectedRoute>
+        ),
       },
       {
         path: "/SelectActivity",
         element: (
-          <AuthProtectedRoute>
+          // <AuthProtectedRoute>
             <SelectActivity />
-          </AuthProtectedRoute>
-        )
+          // </AuthProtectedRoute>
+        ),
       },
       {
         path: "/ActivityForm",
         element: (
-          <AuthProtectedRoute>
+          // <AuthProtectedRoute>
             <ActivityForm />
-          </AuthProtectedRoute>
-        )
+          // </AuthProtectedRoute>
+        ),
       },
       {
         path: "/Chart",
         element: (
-          <AuthProtectedRoute>
+          // <AuthProtectedRoute>
             <Chart />
-          </AuthProtectedRoute>
-        )
+          // </AuthProtectedRoute>
+        ),
       },
       {
         path: "/Logout",
@@ -117,7 +119,6 @@ const router = createBrowserRouter([
     path: "/Login",
     element: <Login />,
   },
-
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
