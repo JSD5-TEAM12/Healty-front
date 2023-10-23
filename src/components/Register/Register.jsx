@@ -88,12 +88,12 @@ const Register = () => {
     const response = await axios.post(import.meta.env.VITE_APP_BACKEND_URL+"/register", requestData)
     navigate('/login');
 
-    const response = await axios.post(
-      "https://healthy-impressed.onrender.com/register",
-      requestData
-    );
-    navigate("/login");
-  };
+  //   const response = await axios.post(
+  //     "https://healthy-impressed.onrender.com/register",
+  //     requestData
+  //   );
+  //   navigate("/login");
+  // };
 
   const checkPass = () => {
     if (password === password2) {
