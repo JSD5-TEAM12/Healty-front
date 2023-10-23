@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from "react";
-import { useParams, useNavigate, Link } from "react-router-dom";
+import React, { useEffect, useState } from "react"
+import { Link } from "react-router-dom"
 //component below
-import { useActivityContext } from "../function";
-import { read, del } from "../SelectActivity/ActivityFunc";
-import EditActivityCard from "./EditActivityCard";
+import { useActivityContext } from "../function"
+import { read, del } from "../SelectActivity/ActivityFunc"
+import EditActivityCard from "./EditActivityCard"
 
 const ActivityCard = () => {
   //try
-  const { currentPicture } = useActivityContext();
+  const { currentPicture } = useActivityContext()
 
   // const params = useParams()
   // const [data, setData] = useState({
@@ -43,14 +43,14 @@ const ActivityCard = () => {
   };
 
   return (
-    <div className="w-[100%] flex flex-col justify-center items-center">
-      <div className=" w-[80%] mt-12 lg:flex flex-col items-center justify-center ">
+    <div className="flex flex-col justify-center items-center h-screen">
+      <div className=" w-[70%] md:w-[60%] mt-12 h-[100vh] overflow-y-auto lg:flex flex-col items-center justify-center ">
         {data
           ? data.map((item, index) => (
-              <div className="border border-pink-600 rounded-3xl bg-zinc-800 mb-2 lg:w-[40%]">
+              <div className="border border-pink-600 rounded-3xl bg-zinc-800 mb-2 lg:w-[40%] xl:w-[40%]">
                 <div
                   key={index}
-                  className="p-2 flex items-center justify-center text-left">
+                  className="p-2 flex items-center justify-center text-left ">
                    
                   {/* <div className='w-[40%]'>{currentPicture}</div> */}
                   <div className="text-white">
@@ -67,8 +67,7 @@ const ActivityCard = () => {
                       {item.duration}
                     </span> mins <br />
                     <div className="text-right">
-                     
-                      <EditActivityCard/>
+                    <Link to={'/activities/edit/' + item._id} className="">Edit</Link>
                       <button
                         onClick={() => handleRemove(item._id)}
                         className="bg-zinc-700 rounded p-1 text-[14px]"
@@ -85,7 +84,5 @@ const ActivityCard = () => {
     </div>
   );
 }
-
-
 
 export default ActivityCard;

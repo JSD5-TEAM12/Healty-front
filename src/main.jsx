@@ -18,6 +18,7 @@ import Home from "./components/Home/Home.jsx";
 import Register from "./components/Register/Register.jsx";
 import Chart from "./components/Chart/Chart.jsx";
 import Login from "./components/Login/Login.jsx";
+import Activity from "./components/ActivityCard/Activity.jsx";
 // import util
 // import { ActivityContextProvider } from "./components/function.jsx";
 // import context
@@ -99,6 +100,14 @@ const router = createBrowserRouter([
         element: (
           // <AuthProtectedRoute>
             <ActivityForm />
+          // </AuthProtectedRoute>
+        ),
+      },
+      {
+        path: "/Activity",
+        element: (
+          // <AuthProtectedRoute>
+            <Activity />
           // </AuthProtectedRoute>
         ),
       },
