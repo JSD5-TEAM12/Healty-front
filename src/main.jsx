@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { ActivityContextProvider } from "./components/function.jsx";
+import { createBrowserRouter, RouterProvider,useNavigate } from "react-router-dom";
+import { Navigate } from 'react-router';
 // import css
 import App from "./App.jsx";
 import "./index.css";
@@ -17,34 +17,25 @@ import Layout from "./components/Layout.jsx";
 import Home from "./components/Home/Home.jsx";
 import Register from "./components/Register/Register.jsx";
 import Chart from "./components/Chart/Chart.jsx";
-import Login from "./components/Login/Login.jsx";
-// import util
-// import { ActivityContextProvider } from "./components/function.jsx";
-// import context
-// import AuthContextProvider from "../context/AuthContext.jsx";
+import Login from "./components/Login/Login.jsx"
+// 
+import { AuthProvider } from "./auth/Authcontext.jsx";
+import { ActivityContextProvider } from "./components/function.jsx";
 
-// for non-token or non-login
-// function NonAuthProtectedRoute({ children }) {
-//   const isAuthenticated = window.localStorage.getItem("token");
-
-//   if (!isAuthenticated) {
-//     return <Navigate to="/login" replace />;
-//   }
-
-//   return children;
-// }
 
 // for token or login
-// function AuthProtectedRoute({ children }) {
-//   const isAuthenticated = window.localStorage.getItem("token");
-//   if (isAuthenticated) {
-//     return <Navigate to="/Home" replace />;
-//   } else {
-//     return <Navigate to="/login" replace />;
-//   }
+ function AuthProtectedRoute({ children }) {
+  const navigate = useNavigate()
+  const isAuthenticated =  localStorage.getItem("token");
+  if (!isAuthenticated) {
+    return <Navigate to="/Login" replace />
+  }
+    return children;
+}
 
 //   return children;
 // }
+
 
 const router = createBrowserRouter([
   {
@@ -131,9 +122,12 @@ const router = createBrowserRouter([
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <ActivityContextProvider>
+  <AuthProvider>
+    <React.StrictMode>
+      <ActivityContextProvider>
       <RouterProvider router={router} />
-    </ActivityContextProvider>
-  </React.StrictMode>
+      </ActivityContextProvider>
+    </React.StrictMode>
+  </AuthProvider>
+
 );
