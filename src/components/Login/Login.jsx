@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Logo from "../../assets/img/Logo.png";
+import BG from "../../assets/img/20-SON01830.jpg"
 import { IoPersonSharp } from "react-icons/io5";
 import { IoLockClosedSharp } from "react-icons/io5";
 import { FcGoogle } from "react-icons/fc";
@@ -55,7 +56,6 @@ const Login = () => {
   };
 
   return (
-    <div className='h-screen bg-[url(".\assets\img\20-SON01830.jpg")] bg-cover bg-center flex'>
       <main className={`${inputStyles.mainSection}`}>
         <img src={Logo} alt="logo" />
 
@@ -128,7 +128,6 @@ const Login = () => {
           </span>
         </section>
       </main>
-    </div>
   );
 };
 
