@@ -41,7 +41,7 @@ const Login = () => {
         <section id="form-login" className="grid gap-4 w-full">
           <form onSubmit={handleLogin} className="flex flex-col xl:max-w-4xl xl:text-base gap-14">
             <section>
-            <label className={`${inputStyles.label}`}>Username</label>
+            <label className={`${inputStyles.label}`}>Username</label> 
             <div className="relative">
               <IoPersonSharp className="absolute left-3 top-1/2 transform -translate-y-1/2 fill-white" />
               <input
