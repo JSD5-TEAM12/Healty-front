@@ -84,6 +84,9 @@ const Register = () => {
     for (const key in requestData) {
       form.append(key, requestData[key]);
     }
+    
+    const response = await axios.post(import.meta.env.VITE_APP_BACKEND_URL+"/register", requestData)
+    navigate('/login');
 
     const response = await axios.post(
       "https://healthy-impressed.onrender.com/register",
