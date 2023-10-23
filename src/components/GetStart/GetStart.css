@@ -7,7 +7,7 @@
     --Whitehighlight: rgba(255, 255, 255, 0.50);
 }
 
-body {
+.bggetstarted {
     height: 100vh;
     background: var(--BG-Mobile, linear-gradient(180deg, #000 0%, #181616 100%));
     overflow: hidden;
@@ -25,9 +25,7 @@ body {
      }
 }
 
-    .--mobile {
-        display: none;
-    }
+
 
     .bg-banner {
         height: 100vh;
@@ -70,7 +68,6 @@ body {
         0% {
             transform: rotate(0deg);
         }
-
         100% {
             transform: rotate(360deg);
         }
@@ -97,7 +94,7 @@ body {
     .btn-color{
         background: linear-gradient(320deg, #3A70F7 30%, var(--Pink500-Primaly) 70%);
         border-radius: 0.5rem;
-        transition: 0.5s ease-in;
+        transition: 0.5s ease-out;
     }
 
     .btn-color:hover {
@@ -106,9 +103,10 @@ body {
         outline-offset: 15px;
         text-shadow: 1px 1px 2px #427388; 
       }
-      
 
-@media screen and (max-width: 425px) {
+
+
+@media screen and (max-width: 768px) {
     .getStarted_desktop {
         width: 300px;
         height: 300px;

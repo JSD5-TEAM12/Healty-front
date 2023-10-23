@@ -54,7 +54,6 @@ const Login = () => {
   };
 
   return (
-    <div className='backgroundMain flex'>
       <main className={`${inputStyles.mainSection}`}>
         <img src={Logo} alt="logo" />
 
@@ -127,7 +126,6 @@ const Login = () => {
           </span>
         </section>
       </main>
-    </div>
   );
 };
 
