@@ -6,7 +6,7 @@ import getstartedIMG from "../../assets/img/Getstarted-img.svg";
 
 const GetStart = () => {
   return (
-    <div className="--desktop">
+    <div className="--desktop bggetstarted">
       <section className="flex">
         <figure className="2xl:w-3/5 xl:w-3/6 lg:d-none md:d-none sm:d-none h-screen bg-banner">
           {/* <img className="bg-banner" src={getstartedbanner} alt="banner" /> */}
@@ -19,8 +19,8 @@ const GetStart = () => {
               alt=""
             />
             <div className="set-spin_desktop flex-block">
-              <article className="NeonPink" />
-              <article className="NeonIndigo" />
+              <article className="NeonPink rounded-full" />
+              <article className="NeonIndigo rounded-full" />
             </div>
           </div>
           <aside className="w-full justify-center bg-main flex flex-col items-center">
@@ -33,7 +33,8 @@ const GetStart = () => {
             <p className="z-10	text-white mt-4 mb-10">
               Create a workout planto stay fit{" "}
             </p>
-            <Link to="/login" className="btn-color flex justify-center items-center text-white text-xl w-[60%] my-4 h-10 px-2">
+            <Link to="/login" className="btn-color flex justify-center items-center text-white text-xl 
+            w-4/6 my-4 h-10 px-2">
           
             
               Get Stared !
