@@ -97,31 +97,6 @@ const Login = () => {
           </span>
         </section>
 
-        {/* Button */}
-        {/* <button className="text-xl text-white" type="button" onClick={()=>handleLogin}>test login</button> */}
-        {/* <section className="w-full gap-4 grid ">
-          <article className="w-full overflow-hidden rounded-md">
-            <button
-              className="border-2 btn_button fade-in p-3  w-full text-white text-xl"
-              onClick={()=>handleLogin}
-              type="submit"
-            >
-              Login
-            </button>
-          </article>
-
-          <article className="w-full overflow-hidden rounded-md">
-            <button
-              className="btn_button fade-in p-3  w-full text-white text-xl flex align-center items-center justify-center"
-              
-              type="button"
-            >
-              <FcGoogle className="w-10" />
-              Continues with google
-            </button>
-          </article>
-
-        </section> */}
 
         <section className="text-center">
           <span className="text-white ">
