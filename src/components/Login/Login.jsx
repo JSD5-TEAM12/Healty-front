@@ -6,8 +6,6 @@ import { IoLockClosedSharp } from "react-icons/io5";
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
-import jwtDecode from "jwt-decode";
 
 // Style 
 import { inputStyles } from "./inputStyles"; // Import the styles
@@ -20,18 +18,18 @@ const Login = () => {
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  
+
   const auth = useAuth()
 
 
-  console.log("username => ",username ,"password => ",password)
-  
+  console.log("username => ", username, "password => ", password)
+
   const handleLogin = async (e) => {
     e.preventDefault();
     console.log("handleLogin is called");
 
-    const response = await auth.login(username,password)
-    if(localStorage.getItem('token')) navigate('/Home')
+    const response = await auth.login(username, password)
+    if (localStorage.getItem('token')) navigate('/Home')
     console.log(response)
   };
 
@@ -41,8 +39,9 @@ const Login = () => {
         <img src={Logo} alt="logo" />
 
         <section id="form-login" className="grid gap-4 w-full">
-          <form  onSubmit={handleLogin} className="flex flex-col xl:max-w-4xl xl:text-base">
-            <label className={`${inputStyles.label}`}>Username</label>
+          <form onSubmit={handleLogin} className="flex flex-col xl:max-w-4xl xl:text-base gap-14">
+            <section>
+            <label className={`${inputStyles.label}`}>Username</label> 
             <div className="relative">
               <IoPersonSharp className="absolute left-3 top-1/2 transform -translate-y-1/2 fill-white" />
               <input
@@ -66,76 +65,38 @@ const Login = () => {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
+            </section>
 
             <section className="w-full gap-4 grid ">
-          <article className="w-full overflow-hidden rounded-md">
-            <button
-              className="border-2 btn_button fade-in p-3  w-full text-white text-xl"
-              onClick={()=>handleLogin}
-              type="submit"
-            >
-              Login
-            </button>
-          </article>
+              <article className="w-full overflow-hidden rounded-md">
+                <button
+                  className="border-2 btn_button fade-in p-3  w-full text-white text-xl"
+                  onClick={() => handleLogin}
+                  type="submit"
+                >
+                  Login
+                </button>
+              </article>
 
-          <article className="w-full overflow-hidden rounded-md">
-            <button
-              className="btn_button fade-in p-3  w-full text-white text-xl flex align-center items-center justify-center"
-              
-              type="button"
-            >
-              <FcGoogle className="w-10" />
-              Continues with google
-            </button>
-          </article>
+              <article className="w-full overflow-hidden rounded-md">
+                <button
+                  className="btn_button fade-in p-3  w-full text-white text-xl flex align-center items-center justify-center"
 
-        </section>
+                  type="button"
+                >
+                  <FcGoogle className="w-10" />
+                  Continues with google
+                </button>
+              </article>
+
+            </section>
           </form>
-          {/* <form className="flex flex-col xl:max-w-4xl">
-            <label className={`${inputStyles.label}`}>Password</label>
-            <div className="relative">
-              <IoLockClosedSharp className="absolute left-3 top-1/2 transform -translate-y-1/2 fill-white text-lg sm:text-xl" />
-              <input
-                type="password"
-                placeholder="Enter Your Password"
-                className={`${inputStyles.base} ${inputStyles.focus}`}
-
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </div>
-          </form> */}
 
           <span className="text-white text-base text-end sm:text-xl">
             <Link to="/reset">Forget your password</Link>
           </span>
         </section>
 
-        {/* Button */}
-        {/* <button className="text-xl text-white" type="button" onClick={()=>handleLogin}>test login</button> */}
-        {/* <section className="w-full gap-4 grid ">
-          <article className="w-full overflow-hidden rounded-md">
-            <button
-              className="border-2 btn_button fade-in p-3  w-full text-white text-xl"
-              onClick={()=>handleLogin}
-              type="submit"
-            >
-              Login
-            </button>
-          </article>
-
-          <article className="w-full overflow-hidden rounded-md">
-            <button
-              className="btn_button fade-in p-3  w-full text-white text-xl flex align-center items-center justify-center"
-              
-              type="button"
-            >
-              <FcGoogle className="w-10" />
-              Continues with google
-            </button>
-          </article>
-
-        </section> */}
 
         <section className="text-center">
           <span className="text-white ">
