@@ -16,7 +16,7 @@ export const ActivityContextProvider = ({ children }) => {
   };
 
   //try
-  const [currentPicture, setCurrentPicture] = useState('');
+  const [currentPicture, setCurrentPicture] = useState();
     console.log(currentPicture)
   const setPicture = (picture) => {
     setCurrentPicture(picture)

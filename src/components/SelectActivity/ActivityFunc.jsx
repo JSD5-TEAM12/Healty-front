@@ -1,7 +1,7 @@
 import axios from "axios";
 
-export const read = async(_id) => {
-    return await axios.get('http://localhost:8050/activities/' , _id )
+export const read = async(id) => {
+    return await axios.get('http://localhost:8050/activities/' , id )
 }
 
 export const list = async () => {
