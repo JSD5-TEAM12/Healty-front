@@ -1,0 +1,13 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* outline: solid bisque 1px; */
+}
+
+.input{
+    border-radius: 10px;
+    border-bottom: 2px solid var(--White, #FFF);
+    background: var(--Pink500-Primaly, #EC4899);
+    height: 55px;
+}
