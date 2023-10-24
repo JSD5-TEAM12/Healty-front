@@ -6,6 +6,9 @@ export default {
   ],
   theme: {
     extend: {},
+    screens:{
+      // 'mobile-screen':'max wid'
+    }
   },
   plugins: [],
 }
