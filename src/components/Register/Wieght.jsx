@@ -2,25 +2,29 @@ import React from 'react'
 
 const Wieght = ({ setWeight, weight }) => {
   return (
-    <div>
-        <div className='pt-20' >
-          <h2 className='text-3xl text-white text-center'>What’s your weight?</h2>
-          <p className='text-center text-zinc-500'>You can always change this later</p>
+    <main className={`flex flex-col gap-[5.4rem] overflow-hidden`}>
+            <header className=" ">
+        <h2 className="text-white text-center text-3xl md:text-5xl">
+        What’s your weight?
+        </h2>
+        <p className="text-zinc-500 text-center text-xl  md:text-2xl">
+        You can always change this later
+        </p>
+      </header>
+
+        <div className=' flex justify-center  items-center'>
+          <p className='text-center text-9xl md:text-[10rem] text-white '> {weight} </p>
+          <p className='text-2xl md:text-4xl text-white self-end py-3'>kg</p>
         </div>
 
-        <div className='mt-40 flex justify-center  align-middle items-end'>
-          <p className='text-center text-8xl text-white '> {weight} </p>
-          <p className='text-xl  text-white pb-4'>kg</p>
-        </div>
-
-        <div className='px-5'>
+        <div className='mb-16'>
           <input type="range" name="" id="" onChange={(e) => setWeight(e.target.value)} value={weight} min="0" max="100" step="0.1" className='w-full range_bar_weigth' />
           <div className='scale_weight'>
 
           </div>
         </div>
       
-    </div>
+    </main>
   )
 }
 
