@@ -8,7 +8,7 @@ const GetStart = () => {
   return (
     <div className="--desktop bggetstarted">
       <section className="flex">
-        <figure className="2xl:w-3/5 xl:w-3/6 lg:d-none md:d-none sm:d-none h-screen bg-banner">
+        <figure className="2xl:w-3/5 xl:w-3/6  md:d-none h-screen bg-banner">
           {/* <img className="bg-banner" src={getstartedbanner} alt="banner" /> */}
         </figure>
         <aside className="2xl:w-2/5 xl:w-3/6 lg:w-full md:w-full w-full  h-screen justify-center flex flex-col items-center">
