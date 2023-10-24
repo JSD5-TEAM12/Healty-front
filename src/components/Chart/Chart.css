@@ -1,0 +1,18 @@
+*{
+    /* outline: solid white 1px; */
+    color: aliceblue;
+}
+
+.index-chart {
+    position: absolute;
+    z-index: -1;
+  }
+
+.bg-chart{
+    background-image: url('/src/assets/img/Mobile_Frame_BG.png');
+}
+
+.margin-list{
+    margin-top: 500px;
+}
+    
