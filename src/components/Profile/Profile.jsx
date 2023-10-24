@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import './Profile.css'  //import css
 import profile from '../../assets/img/swimming.jpg'
+import { Link } from 'react-router-dom'
 //component below 
 
 const Profile = () => {
@@ -49,8 +50,8 @@ const Profile = () => {
       </section>
 
       <section className='mt-20  flex justify-between mx-5  '>
-        <button className='block p-5 w-2/5 rounded-md bg-zinc-600 text-2xl font-bold'>BACK</button>
-        <button className='block p-5 w-2/5 rounded-md bg-zinc-600 text-2xl font-bold'>EDIT</button>
+        <button className='block p-5 w-2/5 rounded-md bg-zinc-600 text-2xl font-bold'> <Link to ='/Home'>BACK</Link> </button>
+        <button className='block p-5 w-2/5 rounded-md bg-zinc-600 text-2xl font-bold'> <Link to ='/UpdateProfile'> EDIT </Link> </button>
       </section>
 
 
