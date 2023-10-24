@@ -6,7 +6,7 @@ import { inputStyles } from "./inputStyle"; // Import the styles
 
 const Gender = ({setGender}) => {
   return (
-    <main className="flex flex-col gap-16">
+=    <main className="flex flex-col gap-16">
         <header className=''>
           <h2 className='text-center text-3xl font-bold text-white'>Tell us about yourself!</h2>
           <p className='text-center text-zinc-500'>To give you a better experience </p>
@@ -43,7 +43,6 @@ const Gender = ({setGender}) => {
         {/* <div className=' relative bg-zinc-800  rounded-md top-96 mx-5 bg-btn'>
           <button className='text-2xl font-bold text-white text-center  bg-zinc-800 relative  btn'>Next</button>
         </div> */}
-      </div>
     </main>
   )
 }
