@@ -89,10 +89,9 @@ const Register = () => {
     }
     return <p className='p-3 border-red-600 bg-red-300 font-bold'> Password is not match </p>
   }
-  return (
+ return (
     <main className={`${inputStyles.mainSection}`}>
       <form action="/register" className="w-full grid gap-16" method="POST">
-        <section>
           {step === 1 && (
             <Data
               nextStep={nextStep}
@@ -123,7 +122,6 @@ const Register = () => {
 
           {step === 4 && <Height setHeight={setHeight} height={height} />}
           {step === 5 && <Wieght setWeight={setWeight} weight={weight} />}
-        </section>
 
 
         <section
@@ -132,26 +130,29 @@ const Register = () => {
           {step > 1 && (
 
             <div className='w-full overflow-hidden rounded-md flex'>
-              <button onClick={prevStep} type='button' className=' bg-zinc-700/50 hover:bg-slate-700 duration-200 p-3  w-full  text-white text-2xl '>
+              <button onClick={prevStep} type='button' className={`${inputStyles.buttonBack}`}>
                 Back
               </button>
             </div>
           )}
           {step < 5 ? (
             <div className='w-full overflow-hidden rounded-md flex'>
-              <button onClick={nextStep} type='button' className='border-2 btn_button p-3 w-full text-white text-2xl '>
+              <button onClick={nextStep} type='button' className='border-2 btn_button p-3 w-full text-white text-2xl fade-in'>
                 Next
               </button>
             </div>
           ) : (
-            <div className=' relative bg-zinc-800  rounded-md  bg-btn '>
-              <button onClick={() => createUser(username, password, firstname, lastname, email, gender, height, weight, birthday, image)} className='submit-button text-2xl font-bold text-white text-center bg-zinc-800 relative btn' type='button'>Login Now!</button>
+            <div className='w-full rounded-md overflow-hidden flex'>
+              <button onClick={() => createUser(username, password, firstname, lastname, email, gender, height, weight, birthday, image)}
+               className='bg-pink-500/80 hover:bg-pink-500 duration-200 p-3 w-full text-2xl' type='button'>Login Now!</button>
             </div>
           )}
         </section>
+        
       </form>
     </main>
   )
 }
 
 export default Register
+
