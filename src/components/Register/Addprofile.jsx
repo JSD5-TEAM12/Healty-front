@@ -12,11 +12,11 @@ const Addprofile = ({
   handleImageChange,
 }) => {
   return (
-    <main className="grid md:gap-16 gap-4">
+    <main className="grid md:gap-7 gap-[0.24rem]">
       <header className=" ">
-        <h1 className="text-white text-center text-3xl md:text-5xl">
+        <h2 className="text-white text-center text-3xl md:text-5xl">
           Add your profiles
-        </h1>
+        </h2>
         <p className="text-zinc-500 text-center text-xl  md:text-2xl">
           Making Your Profiles Look Cool !
         </p>
