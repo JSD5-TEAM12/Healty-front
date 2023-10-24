@@ -6,19 +6,19 @@ const data = [
     { name: "Group B" , value: 20}
   
   ];
-const COLORS = ["#00C49F", "#000000"];
+const COLORS = ["#EC4899", "#333"];
 
 
 const Chart1 = () => {
     return (
-      <div className='h-screen w-screen flex flex-col mt-28 items-center index-chart'>
-        <PieChart width={500} height={500} >
+      <div className=' w-screen flex flex-col mt-36 items-center index-chart'>
+        <PieChart width={320} height={320} >
           <Pie
             data={data}
-            cx={250}
-            cy={250}
-            innerRadius={150}
-            outerRadius={200}
+            cx={160}
+            cy={160}
+            innerRadius={100}
+            outerRadius={150}
             fill="#8884d8"
             paddingAngle={0}
             dataKey="value"  
@@ -28,7 +28,7 @@ const Chart1 = () => {
             ))}
           </Pie>
         </PieChart>
-        <div className='absolute top-56 inset-0 text-center'>
+        <div className='absolute top-32 inset-0 text-center '>
           <p className='text-5xl '>156</p>
           <p>Calories</p>
         </div> 
