@@ -1,16 +1,17 @@
 import React from 'react'
 import { IoMale, IoFemale, IoMaleFemale } from "react-icons/io5";
 
+import { inputStyles } from "./inputStyle"; // Import the styles
+
 
 const Gender = ({setGender}) => {
   return (
-    <div>
-        <div className='pt-20'>
-        <div className=''>
+    <main className="flex flex-col gap-16">
+        <header className=''>
           <h2 className='text-center text-3xl font-bold text-white'>Tell us about yourself!</h2>
           <p className='text-center text-zinc-500'>To give you a better experience </p>
           <p className='text-center text-zinc-500'>we need to know your gender</p>
-        </div>
+        </header>
 
         <div className=" pt-20  bg-slate-50 rounded-xl overflow-hidden bg-slate-800/10">
           <div className="absolute inset-0 bg-grid-slate-100 [mask-image:linear-gradient(0deg,#fff,rgba(255,255,255,0.6))] dark:bg-grid-slate-700/25 dark:[mask-image:linear-gradient(0deg,rgba(255,255,255,0.1),rgba(255,255,255,0.5))]" >
@@ -43,7 +44,7 @@ const Gender = ({setGender}) => {
           <button className='text-2xl font-bold text-white text-center  bg-zinc-800 relative  btn'>Next</button>
         </div> */}
       </div>
-    </div>
+    </main>
   )
 }
 
