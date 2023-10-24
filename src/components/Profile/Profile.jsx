@@ -45,7 +45,7 @@ const Profile = () => {
           </div>
         </div>
       </section>
-      <section className='mt-10 mx-5  flex justify-between   '>
+      <section className='mt-16 mx-5  flex justify-between   '>
         <button className='block p-5 w-2/5 rounded-md bg-zinc-600 text-2xl font-bold'> <Link to ='/Home'>BACK</Link> </button>
         <button className='block p-5 w-2/5 rounded-md bg-zinc-600 text-2xl font-bold'> <Link to ='/UpdateProfile'> EDIT </Link> </button>
       </section>
