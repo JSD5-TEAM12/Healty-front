@@ -70,11 +70,14 @@
   background: linear-gradient(135deg, #EC4899, #4338CA);
 }
 
-/* .btn_gender:active{
+/* Apply styles to the background when radio button is checked */
+input[type="radio"]:checked + label {
+  transform: scale(1.1);
+  transition: 600ms;
   border-radius: 20px;
-    background: linear-gradient(135deg,#EC4899,#4338CA);
-    
-} */
+  background: linear-gradient(135deg, #ec4899, #4338ca);
+}
+
 
 
 .range_bar {
@@ -109,8 +112,9 @@
 }
 
 .current_age {
-  border-top: 2px solid #EC4899;
-  border-bottom: 2px solid #EC4899;
+  border-top: 0.25rem solid #EC4899;
+  border-bottom: 0.25rem solid #EC4899;
+  width: 16rem;
 }
 
 .range_bar_weigth {
@@ -176,3 +180,17 @@
 }
 
 
+
+.btn-color{
+  background: linear-gradient(320deg, #3A70F7 30%, var(--Pink500-Primaly) 70%);
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  transition: 0.5s ease-out;
+}
+
+.btn-color:hover {
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
+  /* box-shadow:  -50px 0px 100px var(--Pink500-Primaly), 50px 10px 100px var(--Indigo700-Second); */
+  outline-offset: 15px;
+  text-shadow: 1px 1px 2px #427388; 
+}
