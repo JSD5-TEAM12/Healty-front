@@ -13,3 +13,39 @@ body {
       animation-iteration-count: 1;
       animation-fill-mode: forwards;
     }
+
+
+
+    /* Define your breakpoints */
+:root {
+  --sm: 640px;
+  --md: 768px;
+  --lg: 1024px;
+  --xl: 1280px;
+}
+
+/* Styles for small screens and above */
+@media (min-width: var(--sm)) {
+  .sm-some-class {
+    /* styles for small screens and above */
+  }
+}
+
+/* Styles for medium screens and above */
+@media (min-width: var(--md)) {
+  .md-some-class {
+    /* styles for medium screens and above */
+  }
+}
+  /* Styles for lg screens and above */
+@media (min-width: var(--lg)) {
+  .lg-some-class {
+    /* styles for medium screens and above */
+  }
+}
+
+@media (min-width: var(--xl)) {
+  .xl-some-class {
+    /* styles for medium screens and above */
+  }
+}
