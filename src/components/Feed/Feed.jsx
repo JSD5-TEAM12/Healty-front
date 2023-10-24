@@ -23,16 +23,16 @@ const PostInput = () => {
   return (
     <>
       <div className="w-[100%]">
-      <div className="text-white flex justify-center items-center w-[90%]">
+      <div className="text-white flex justify-center items-center w-[100%]">
         <img src={avatar} alt="Your Avatar" className="rounded-3xl" />
-        <div className="mx-4 w-[80%]">
+        <div className="mx-4">
           <textarea
             id="postInput"
-            className="rounded-xl w-[80%] text-white bg-transparent border border-white"
+            cols={50}
+            className="rounded-xl text-white bg-transparent border border-white"
             placeholder="What's on your mind?"
           ></textarea>
         </div>
-
         <div className="">
           <button className="border border-white rounded-lg p-1 text-white">Post</button>
         </div>

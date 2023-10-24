@@ -67,11 +67,11 @@ console.log('Show time', form.date)
 
   return (
     <>
-    <div className="w-[100%] mt-6">
-     <div className="flex flex-col justify-center items-center ">
+    <div className="w-[100%]">
+     <div className="flex flex-col justify-center items-center">
   <form onSubmit={e => handleSubmit(e)}> 
   <div className="w-[100%] flex justify-center items-center">
-    <div className="lg:w-[30%] border border-white w-[60%] text-center mt-8">
+    <div className="lg:w-[30%] border border-white w-[50%] text-center mt-8">
       {currentPicture}
     </div>
   </div>

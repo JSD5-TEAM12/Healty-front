@@ -43,7 +43,7 @@ const ActivityCard = () => {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center h-screen">
+    <div className="flex flex-col justify-center items-center">
       <div className=" w-[70%] md:w-[60%] mt-12 h-[100vh] overflow-y-auto lg:flex flex-col items-center justify-center ">
         {data
           ? data.map((item, index) => (

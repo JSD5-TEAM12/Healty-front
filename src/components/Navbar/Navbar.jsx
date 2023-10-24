@@ -46,10 +46,10 @@ const Navbar = () => {
           className={`lg:hidden absolute top-0 ${sidebar
               ? "translate-x-0 transition-transform duration-500 w-full bg-black bg-opacity-40 backdrop-blur-lg"
               : "-translate-x-full transition-transform duration-700"}`}>
-          <ul className="w-screen flex flex-col items-center text-white text-2xl  h-screen 
+          <ul className="w-screen flex flex-col items-center text-white text-2xl
         p-4 rounded mt-14">
             <li className="w-full h-20 flex justify-center items-center">
-              <Link to="#" className="mr-">
+              <Link to="#" className="">
                 <Io5Icons.IoCaretBackCircleSharp
                   className="text-white absolute left-0 ml-20"
                   onClick={showSidebar}
@@ -95,10 +95,10 @@ const Navbar = () => {
                 className=""
                 src={logo}
                 alt="Logo"
-                width="250"
-                height="250"
+                width="200"
+                height="200"
               />
-              <div className="h-12 flex justify-start items-center ">
+              <div className="flex justify-start items-center ">
                 <Link to="#" className="text-3xl ml-4 text-white">
                   <Io5Icons.IoMenuOutline onClick={showSidebar} className="" />
                 </Link>
@@ -120,7 +120,7 @@ const Navbar = () => {
               : "-translate-x-full transition-transform duration-700"
             }`}
         >
-          <ul className="w-80 h-screen flex flex-col items-center bg-black bg-opacity-10 backdrop-blur-lg">
+          <ul className="w-80 flex flex-col items-center bg-black bg-opacity-10 backdrop-blur-lg">
             <li className="">
               <Link to="#" className="lg:hidden">
                 <Io5Icons.IoCaretBackCircleSharp
