@@ -1,27 +1,35 @@
-import { createContext,useContext,useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 import axios from 'axios'
 
 const AuthContext = createContext(null)
-export const AuthProvider = ({children})=>{
-    const [user,setUser] = useState(null)
+export const AuthProvider = ({ children }) => {
+    const [user, setUser] = useState(null)
 
-    const login = async (username,password)=>{
+    useEffect(() => {
+        const tokenWithBearer = localStorage.getItem('token')
+        if (tokenWithBearer) {
+            const payload = readPayload(tokenWithBearer)
+            setUser(payload)
+        }
+    }, []);
+
+    const login = async (username, password) => {
         try {
-            const reqBody = {username,password};
-            const response = await axios.post(import.meta.env.VITE_APP_BACKEND_URL+"/login",reqBody)
+            const reqBody = { username, password };
+            const response = await axios.post(import.meta.env.VITE_APP_BACKEND_URL + "/login", reqBody)
 
-            if(response.status !== 200){
+            if (response.status !== 200) {
                 throw new Error('login fail')
             }
 
             // console.log('response :>> ', response);
 
             const token = response.data.token;
-            localStorage.setItem('token',token);
+            localStorage.setItem('token', token);
 
-            if(!token) throw new Error('login fail');
+            if (!token) throw new Error('login fail');
 
-            const payload =  readPayload(token)
+            const payload = readPayload(token)
             setUser(payload);
             return response;
 
@@ -46,7 +54,7 @@ export const AuthProvider = ({children})=>{
     }
 
 
-return (
+    return (
         <AuthContext.Provider value={{ user, login, logout }}>
             {children}
         </AuthContext.Provider>

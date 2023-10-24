@@ -28,7 +28,7 @@ function AuthProtectedRoute({ children }) {
   const navigate = useNavigate()
   const isAuthenticated = localStorage.getItem("token");
   if (!isAuthenticated) {
-    return <Navigate to="/Login" replace />
+    return <Navigate to="/Getstart" replace />
   }
   return children;
 }
