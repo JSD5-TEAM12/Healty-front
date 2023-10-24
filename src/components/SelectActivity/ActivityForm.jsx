@@ -4,13 +4,16 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { read, create} from "./ActivityFunc";
 import { useParams, useNavigate } from 'react-router-dom';
+import { useAuth } from "../../auth/Authcontext";
+
 
 function ActivityForm() {
+  const auth = useAuth()
   const { currentActivity, currentPicture } = useActivityContext();
   const [data, setData] = useState([]);
   // const [form, setForm] = useState({});
   const [form, setForm] = useState({
-    user_id: "6532a6c0246ea32353b3565d",
+    user_id: auth.user.userId,
     type: currentActivity,
     desc: "",
     date: "",

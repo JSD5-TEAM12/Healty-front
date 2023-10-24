@@ -4,10 +4,14 @@ import { Link } from "react-router-dom"
 import { useActivityContext } from "../function"
 import { read, del } from "../SelectActivity/ActivityFunc"
 import EditActivityCard from "./EditActivityCard"
+// import Auth
+import { useAuth } from "../../auth/Authcontext"
 
 const ActivityCard = () => {
   //try
   const { currentPicture } = useActivityContext()
+  const auth = useAuth()
+  console.log('auth.user :>> ', auth.user);
 
   // const params = useParams()
   // const [data, setData] = useState({
@@ -20,15 +24,20 @@ const ActivityCard = () => {
 
   const [data, setData] = useState([]);
 
+
   useEffect(() => {
-    loadData(data);
-  }, []);
+    if(auth.user) {
+      console.log('auth.user.userId :>> ', auth.user.userId);
+      loadData(auth.user.userId)
+    };
+  }, [auth.user]);
 
   const loadData = async (id) => {
+    console.log('id :>> ', id);
     read(id)
       .then((res) => {
-        console.log(res.data);
-        setData(res.data);
+        console.log("res log data => : ",res);
+        setData(res);
       })
       .catch((err) => console.log(err));
   };
