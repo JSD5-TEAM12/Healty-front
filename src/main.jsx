@@ -19,6 +19,7 @@ import Home from "./components/Home/Home.jsx";
 import Register from "./components/Register/Register.jsx";
 import Chart from "./components/Chart/Chart.jsx";
 import Login from "./components/Login/Login.jsx"
+import UpdateProfile from "./components/Profile/UpdateProfile.jsx";
 // 
 import { AuthProvider } from "./auth/Authcontext.jsx";
 import { ActivityContextProvider } from "./components/function.jsx";
@@ -54,9 +55,17 @@ const router = createBrowserRouter([
       {
         path: "/Profile",
         element: (
-          <AuthProtectedRoute>
+          // <AuthProtectedRoute>
             <Profile />
-          </AuthProtectedRoute>
+          // </AuthProtectedRoute>
+        ),
+      },
+      {
+        path: "/UpdateProfile",
+        element: (
+          // <AuthProtectedRoute>
+            <UpdateProfile />
+          // </AuthProtectedRoute>
         ),
       },
       {
@@ -102,9 +111,9 @@ const router = createBrowserRouter([
       {
         path: "/Chart",
         element: (
-          <AuthProtectedRoute>
+          // <AuthProtectedRoute>
             <Chart />
-          </AuthProtectedRoute>
+          // </AuthProtectedRoute>
         ),
       },
       {

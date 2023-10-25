@@ -29,7 +29,7 @@ function ActivityForm() {
 
   const loadData = async () => {
     read()
-      .then((res) => setData(res.data))
+      .then((res) => setData(res))
       .catch((err) => console.log(err));
   };
 
@@ -81,6 +81,7 @@ console.log('Show time :', form.date)
     <div className="lg:w-[100%] flex flex-col justify-center items-center">
       <div className="flex justify-center mt-4">
         <input className="rounded bg-pink-600 text-zinc-300 py-2 text-center text-xl" readOnly
+          name="type"
           value={currentActivity}/>
       </div>
       <div className="flex justify-center">

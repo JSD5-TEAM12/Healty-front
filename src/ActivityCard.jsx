@@ -28,15 +28,15 @@ const ActivityCard = () => {
   useEffect(() => {
     if(auth.user) {
       // console.log('auth.user.userId :>> ', auth.user.userId);
-      loadData(auth.user)
+      loadData(auth.user.userId)
     };
-  }, [data]);
+  }, [auth.user]);
 
   const loadData = async (id) => {
     console.log('id :>> ', id);
     read(id)
       .then((res) => {
-        console.log("res log data => : ",res);
+        console.log("res log data => : ",res.data);
         setData(res);
       })
       .catch((err) => console.log(err));

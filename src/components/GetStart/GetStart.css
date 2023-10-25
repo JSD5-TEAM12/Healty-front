@@ -93,6 +93,7 @@
 
     .btn-color{
         background: linear-gradient(320deg, #3A70F7 30%, var(--Pink500-Primaly) 70%);
+        padding: 1.5rem;
         border-radius: 0.5rem;
         transition: 0.5s ease-out;
     }

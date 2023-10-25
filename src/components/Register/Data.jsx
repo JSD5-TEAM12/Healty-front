@@ -15,11 +15,11 @@ const Data = ({
   checkPass,
 }) => {
   return (
-    <main className="flex flex-col gap-16">
+    <main className="flex flex-col gap-16 md:gap-[6rem]">
       <header className=" ">
-        <h1 className="text-white text-center text-3xl md:text-5xl">
+        <h2 className="text-white text-center text-3xl md:text-5xl">
           Create new account
-        </h1>
+        </h2>
         <p className="text-zinc-500 text-center text-xl  md:text-2xl">
           join with us in Healthy Impress !
         </p>
