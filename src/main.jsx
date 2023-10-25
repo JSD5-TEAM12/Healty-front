@@ -21,7 +21,7 @@ import Chart from "./components/Chart/Chart.jsx";
 import Login from "./components/Login/Login.jsx"
 import UpdateProfile from "./components/Profile/UpdateProfile.jsx";
 // 
-import { AuthProvider } from "./auth/Authcontext.jsx";
+import { AuthProvider } from "./auth/AuthContext.jsx";
 import { ActivityContextProvider } from "./components/function.jsx";
 
 

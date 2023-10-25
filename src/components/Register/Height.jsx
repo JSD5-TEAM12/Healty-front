@@ -2,7 +2,7 @@ import React from "react";
 
 const Height = ({ setHeight, height }) => {
   return (
-    <main className={`flex flex-col gap-16 md:gap-7 overflow-hidden`}>
+    <main className={`flex flex-col gap-[5.8rem] md:gap-7 overflow-hidden`}>
       <header className=" ">
         <h2 className="text-white text-center text-3xl md:text-5xl">
           What’s your height?

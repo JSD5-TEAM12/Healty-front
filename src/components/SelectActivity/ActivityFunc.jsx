@@ -26,7 +26,13 @@ export const del = async (id) => {
 
 
 export const updated = async ( id,data) => {
-    const response = await AxiosServices('PUT', `http://localhost:8050/updateActivity${id}`, data)
+    if(data) {
+    console.log('activity :',id,data);
+    const dataUpdated = {desc: data.updateDesc, type: data.updateType, date: data.updateDate, 
+        duration: data.updateDuration }
+    console.log('Data Update :>>',dataUpdated);
+    const response = await AxiosServices('PUT', `http://localhost:8050/updateActivity/${id}`, dataUpdated)
     console.log('response :>>', response)
     return response
+    }
 }
