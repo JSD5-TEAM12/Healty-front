@@ -33,143 +33,75 @@ const Navbar = () => {
   console.log('auth :>> ', auth.user);
 
   const sidebarItems = Sidebar()
-  return (
-    <>
-      {/* Mobile */}
-      <IconContext.Provider value={{ color: "undefined" }} className="mobile ">
-        <div className="h-12 flex justify-start items-center lg:hidden ">
-          <Link to="#" className="text-4xl ml-4 text-white">
-            <Io5Icons.IoMenuOutline onClick={showSidebar} className="fixed" />
+  
+  return (      
+  
+  <main className="">
+      <IconContext.Provider value={{ color: "undefined" }} className="lg:hidden">
+        <nav className="w-full flex justify-between p-4">
+          <Link to="#">
+            <Io5Icons.IoMenuOutline
+              onClick={showSidebar}
+              className="text-4xl lg:text-5xl"
+            />
           </Link>
-        </div>
-        <nav
-          className={`lg:hidden absolute top-0 ${sidebar
-            ? "translate-x-0 transition-transform duration-500 w-full bg-black bg-opacity-40 backdrop-blur-lg"
-            : "-translate-x-full transition-transform duration-700"}`}>
-          <ul className="w-screen flex flex-col items-center text-white text-2xl 
-        p-4 rounded mt-14 h-screen">
-            <li className="w-full h-20 flex justify-center items-center">
-              <Link to="#" className="">
+
+          <Link to="/Profile">
+            <Io5Icons.IoPersonCircleOutline className="text-4xl lg:text-5xl" />
+          </Link>
+        </nav>
+
+        <nav className={` fixed top-0  w-full h-full xl:w-1/4  bg-black 
+        ${sidebar ? "translate-x-0 transition-transform duration-700 w-full bg-zinc-900/90 backdrop-blur-sm"
+              : "-translate-x-full  bg-zinc-900/90 backdrop-blur-sm duration-700 ease-in-out"}`}>
+        <ul className="flex flex-col items-center justify-center gap-8  lg:w-full h-screen">
+            <li className="flex w-full justify-evenly items-center">
+              <Link to="#" className="h-full flex items-center">
                 <Io5Icons.IoCaretBackCircleSharp
-                  className="text-white absolute left-0 ml-20"
+                  className=" text-4xl duration-1000"
                   onClick={showSidebar}
-                />
+                /><span className="text-2xl">BACK</span>
               </Link>
-              <img
-                className=""
+              <img className=" lg:w-1/4 xl:w-1/2"
                 src={whitelogo}
                 alt="Logo"
-                width="200"
-                height="200"
               />
             </li>
-            <div className="flex flex-col justify-center items-center ">
-              <h3 className="border-b-8 border-pink-600 w-full text-center mt-8 text-5xl">
+            <ul className="flex flex-col gap-4 w-4/5">
+              <h3 className="border-b-4 py-2 border-pink-500  animate-pulse w-full text-center  text-5xl">
                 Menu
               </h3>
               {sidebarItems.map((item, index) => {
                 return (
                   <li key={index} className={item.cName}>
                     <Link to={item.path} onClick={() => showSidebar}>
-                      <div className="m-6 px-4 hover:bg-zinc-500 w-64 
-                      rounded text-2xl flex justify-between">
-                        <button className="">
-                          {item.title}
-                        </button>
-                        <button className="">
-                          {item.icons}
-                        </button>
+                      <div
+                        className=" hover:bg-zinc-500 active:bg-zinc-500 w-full 
+                      rounded text-2xl flex justify-between "
+                      >
+                        <button className="p-4">{item.title}</button>
+                        <button className="p-4">{item.icons}</button>
                       </div>
                     </Link>
                   </li>
-                );
-              })}
-              <div className="m-6 px-4 hover:bg-zinc-500 w-64 
-                      rounded text-2xl flex justify-between">
-              <button className="" onClick={() => handleLogout()}>log out</button>
-              <Io5Icons.IoLogOutOutline />
-              </div>
-            </div>
+
+                );                  
+
+              })}                
+
+
+            </ul>                
+                <button className="p-4 w-4/5 text-2xl hover:bg-zinc-500 flex justify-between items-center 
+                 rounded-lg  " onClick={() => handleLogout()}>
+                  <span className="">Log out</span><Io5Icons.IoLogOutOutline className=" animate-pulse" />
+                </button>
+                
           </ul>
         </nav>
       </IconContext.Provider>
+  </main>
 
-      {/* Desktop */}
-      <IconContext.Provider value={{ color: "undefined" }} className="desktop ">
-        <div className="lg:block hidden ">
-          <div className="flex justify-between mt-4 bg-black bg-opacity-10 w-screen pr-6 py-2">
-            <div>
-              <img
-                className=""
-                src={logo}
-                alt="Logo"
-                width="200"
-                height="200"
-              />
-              <div className="flex justify-start items-center ">
-                <Link to="#" className="text-3xl ml-4 text-white">
-                  <Io5Icons.IoMenuOutline onClick={showSidebar} className="" />
-                </Link>
-              </div>
-            </div>
-            <Link to='/Profile'>
-              <img
-                className=" "
-                src={profile}
-                alt="Logo"
-                width="70"
-                height="70"
-              />
-            </Link>
 
-          </div>
-        </div>
 
-        <nav
-          className={`lg:block hidden absolute ${sidebar
-            ? "translate-x-0 transition-transform duration-500"
-            : "-translate-x-full transition-transform duration-700"
-            }`}
-        >
-          <ul className="w-80 flex flex-col items-center bg-black bg-opacity-10 backdrop-blur-lg h-screen">
-            <li className="">
-              <Link to="#" className="lg:hidden">
-                <Io5Icons.IoCaretBackCircleSharp
-                  className="text-white"
-                  onClick={showSidebar} />
-              </Link>
-              <img
-                className="lg:hidden"
-                src={logo}
-                alt="Logo"
-                width="300"
-                height="300"
-              />
-            </li>
-            <div className="text-white text-xl">
-              {/* <h3 className="border-b text-center">Menu</h3> */}
-              {sidebarItems.map((item, index) => {
-                return (
-                  <li key={index} className={item.cName}>
-                    <Link to={item.path} onClick={() => showSidebar}>
-                      <button>
-                        <div className="flex justify-center my-8 items-center hover:bg-zinc-500 w-64 rounded">
-                          <span className="">{item.title}</span>
-                          {/* {item.icons} */}
-                        </div>
-                      </button>
-                    </Link>
-                  </li>
-
-                );
-              })}
-              <button className="hover:bg-zinc-500 w-64 rounded mt-8" onClick={() => handleLogout()}>log out</button>
-            </div>
-          </ul>
-        </nav>
-      </IconContext.Provider>
-    </>
   );
 };
-
-export default Navbar;
