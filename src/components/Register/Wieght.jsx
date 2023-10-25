@@ -2,7 +2,7 @@ import React from 'react'
 
 const Wieght = ({ setWeight, weight }) => {
   return (
-    <main className={`flex flex-col gap-[5.4rem] overflow-hidden`}>
+    <main className={`flex flex-col md:gap-[7.5rem] gap-[7.4rem] overflow-hidden`}>
             <header className=" ">
         <h2 className="text-white text-center text-3xl md:text-5xl">
         What’s your weight?
