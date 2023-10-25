@@ -3,7 +3,7 @@ import { updated, list } from "../SelectActivity/ActivityFunc"
 import { useActivityContext } from "../function"
 import { useParams, useNavigate } from "react-router-dom"
 //try
-import { useAuth } from "../../auth/Authcontext"
+import { useAuth } from "../../auth/AuthContext"
 
 const EditActivityCard = () => {
   const { currentActivity } = useActivityContext()
@@ -17,6 +17,7 @@ const EditActivityCard = () => {
     // _id: '',
     // user_id: auth.user.userId,
     id: id,
+    updateTitle: '',
     updateType: '',
     updateDesc: '',
     updateDate: '',
@@ -29,7 +30,8 @@ const EditActivityCard = () => {
   const getdata = async (id)=>{
     try {
       const response = await list(id)
-      setUpdateData({updateType:response.type,
+      setUpdateData({updateTitle: response.title,
+      updateType:response.type,
       updateDesc: response.desc,
       updateDate: response.date,
       updateDuration: response.duration})
@@ -98,6 +100,8 @@ useEffect(()=>{
   </div>
     <div className="lg:w-[100%] flex flex-col justify-center items-center">
       <div className="flex justify-center mt-4">
+      <input type="text" name="title" id="title" className="rounded bg-pink-600 text-zinc-300 py-2 text-center text-xl mr-2"
+        placeholder="Title" value={updateData.title} onChange={handleChange}/>
         <input className="rounded bg-pink-600 text-zinc-300 py-2 text-center text-xl" 
           value={updateData.updateType}
           readOnly/>

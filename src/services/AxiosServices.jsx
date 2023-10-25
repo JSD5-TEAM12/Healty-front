@@ -15,7 +15,7 @@ const AxiosServices = async (method, url, body) => {
             url: url,
             data: body,
             headers:{
-            "Content-Type": "multipart/form-data",
+            // "Content-Type": "multipart/form-data",
             authorization: `Bearer ${token}`
          }
         });

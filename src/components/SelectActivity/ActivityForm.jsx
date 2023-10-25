@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { read, create} from "./ActivityFunc";
 import { useParams, useNavigate } from 'react-router-dom';
-import { useAuth } from "../../auth/Authcontext";
+import { useAuth } from "../../auth/AuthContext";
+import bicycle from '../../assets/img/bicycle.jpg'
 
 
 function ActivityForm() {
@@ -14,22 +15,18 @@ function ActivityForm() {
   // const [form, setForm] = useState({});
   const [form, setForm] = useState({
     user_id: auth.user.userId,
-    type: currentActivity,
-    // desc: "",
-    // date: "",
-    // duration: "none",
+    type: currentActivity
   });
   // try
   const navigate = useNavigate()
   
-
   useEffect(() => {
     loadData();
   }, []);
 
   const loadData = async () => {
-    read()
-      .then((res) => setData(res))
+    await read()
+      .then((res) => setData(res.data))
       .catch((err) => console.log(err));
   };
 
@@ -42,7 +39,7 @@ function ActivityForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (form.type && form.desc && form.date && form.duration !== "none") {
+    if (form.title && form.type && form.desc && form.date && form.duration !== "none") {
       create(form)
         .then((res) => {
           loadData()
@@ -75,14 +72,16 @@ console.log('Show time :', form.date)
   <form onSubmit={e => handleSubmit(e)}> 
   <div className="w-[100%] flex justify-center items-center">
     <div className="lg:w-[30%] border border-white w-[50%] text-center mt-8">
-      {currentPicture}
+      {currentPicture ? currentPicture : <img src={bicycle} />}
     </div>
   </div>
     <div className="lg:w-[100%] flex flex-col justify-center items-center">
       <div className="flex justify-center mt-4">
-        <input className="rounded bg-pink-600 text-zinc-300 py-2 text-center text-xl" readOnly
+        <input className="rounded bg-pink-600 text-zinc-300 p-2 text-center mt-4 mr-2" readOnly
           name="type"
           value={currentActivity}/>
+          <input type="text" name="title" id="title" className="p-2 mt-4 rounded bg-zinc-700 text-zinc-300"
+        placeholder="Title" onChange={e => handleChange(e)}/>
       </div>
       <div className="flex justify-center">
         <textarea
@@ -120,7 +119,7 @@ console.log('Show time :', form.date)
           <option value="60">60 Mins</option>
         </select>
       </div>
-      <div className="flex justify-center item-center w- mt-12 w-[68%] lg:w-[23%]">
+      <div className="flex justify-center item-center w- mt-12 w-[65%] md:w-[30%]">
         <BackBtn />
         <CreateBtn
           handleSubmit={handleSubmit}
@@ -138,7 +137,7 @@ const BackBtn = () => {
   return (
     <>
       <div className="bg-zinc-700 rounded-lg flex w-[45%] p-1 mr-2">
-        <Link to={{ pathname: "/" }} className="w-[100%]">
+        <Link to={{ pathname: "/Home" }} className="w-[100%]">
           <div className="text-white  text-xl w-[100%] h-[100%] rounded-lg flex justify-center items-center">
             <button>Back</button>
           </div>
