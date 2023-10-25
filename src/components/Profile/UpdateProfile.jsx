@@ -21,13 +21,14 @@ const UpdateProfile = () => {
   const navigate = useNavigate()
   const userAuthen = useAuth()
   console.log('gender :>> ', gender);
+  const api = import.meta.env.VITE_APP_BACKEND_URL
 
   useEffect(() => {
     if (userAuthen.user) {
       console.log('userAuthen :>> ', userAuthen.user.userId);
       const id = userAuthen.user.userId;
 
-      AxiosServices("GET",`http://localhost:8050/profile/${id}`,{})
+      AxiosServices("GET", api + '/profile/' + id,{})
       .then((res) => {
         const userData = res;
         setUsername(userData.username)

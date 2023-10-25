@@ -15,13 +15,14 @@ const Profile = () => {
   const [weight, setWeight] = useState(72)
 
   const userAuthen = useAuth();
+  const api = import.meta.env.VITE_APP_BACKEND_URL
 
   useEffect(() => {
     if (userAuthen.user) {
       console.log('userAuthen :>> ', userAuthen.user.userId);
       const id = userAuthen.user.userId;
 
-      AxiosServices("GET",`http://localhost:8050/profile/${id}`,{})
+      AxiosServices("GET", api + '/profile/' + id,{})
       .then((res) => {
         // Assuming the response data contains user information
         const userData = res;
