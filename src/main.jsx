@@ -11,6 +11,7 @@ import Profile from "./components/Profile/Profile.jsx";
 import ActivityCard from "./components/ActivityCard/ActivityCard.jsx";
 import SelectActivity from "./components/SelectActivity/SelectActivity.jsx";
 import ActivityForm from "./components/SelectActivity/ActivityForm.jsx";
+import EditActivityCard from "./components/ActivityCard/EditActivityCard.jsx";
 import Advice from "./components/Advice.jsx";
 import Logout from "./components/Logout.jsx";
 import Layout from "./components/Layout.jsx";
@@ -19,7 +20,7 @@ import Register from "./components/Register/Register.jsx";
 import Chart from "./components/Chart/Chart.jsx";
 import Login from "./components/Login/Login.jsx"
 // 
-import { AuthProvider } from "./auth/Authcontext.jsx";
+import { AuthProvider } from "./auth/AuthContext.jsx";
 import { ActivityContextProvider } from "./components/function.jsx";
 import Feed from "./components/Feed/Feed.jsx";
 
@@ -54,9 +55,9 @@ const router = createBrowserRouter([
       {
         path: "/Profile",
         element: (
-          <AuthProtectedRoute>
+          // <AuthProtectedRoute>
             <Profile />
-          </AuthProtectedRoute>
+          // </AuthProtectedRoute>
         ),
       },
       {
@@ -92,11 +93,19 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/Chart",
+        path: "/EditActivityCard/:id",
         element: (
           <AuthProtectedRoute>
-            <Chart />
+            <EditActivityCard />
           </AuthProtectedRoute>
+        ),
+      },
+      {
+        path: "/Chart",
+        element: (
+          // <AuthProtectedRoute>
+            <Chart />
+          // </AuthProtectedRoute>
         ),
       },
       {
