@@ -4,7 +4,7 @@ import { createBrowserRouter, RouterProvider, useNavigate } from "react-router-d
 import { Navigate } from 'react-router';
 // import css
 import App from "./App.jsx";
-import "./index.css";
+import './index.css';
 // import components
 import GetStart from "./components/GetStart/GetStart.jsx";
 import Profile from "./components/Profile/Profile.jsx";
@@ -19,6 +19,7 @@ import Home from "./components/Home/Home.jsx";
 import Register from "./components/Register/Register.jsx";
 import Chart from "./components/Chart/Chart.jsx";
 import Login from "./components/Login/Login.jsx"
+import UpdateProfile from "./components/Profile/UpdateProfile.jsx";
 // 
 import { AuthProvider } from "./auth/Authcontext.jsx";
 import { ActivityContextProvider } from "./components/function.jsx";
@@ -56,6 +57,14 @@ const router = createBrowserRouter([
         element: (
           <AuthProtectedRoute>
             <Profile />
+          </AuthProtectedRoute>
+        ),
+      },
+      {
+        path: "/UpdateProfile",
+        element: (
+          <AuthProtectedRoute>
+            <UpdateProfile />
           </AuthProtectedRoute>
         ),
       },
