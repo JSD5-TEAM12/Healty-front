@@ -118,10 +118,11 @@ const Login = () => {
       </section>
 
       <section className="text-center">
-        <span className="text-white ">
-          Don't have any account?{" "}
-          <Link to="/register" className="text-pink-400 font-bold">
-            Sign up
+      <span className="text-white text-center text-lg sm:text-xl ">
+      Don`t have any account ?{" "}
+          <Link to="/register">
+            {" "}
+            <span className="text-pink-500 cursor-pointer font-bold	">Sign Up</span>{" "}
           </Link>{" "}
         </span>
       </section>
