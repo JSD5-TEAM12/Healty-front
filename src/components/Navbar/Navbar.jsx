@@ -101,5 +101,4 @@ const Navbar = () => {
     </main>
   );
 };
-
-export default Navbar;
+export default Navbar
