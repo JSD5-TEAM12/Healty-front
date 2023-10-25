@@ -126,8 +126,8 @@ const PostFeed = ({
             <IoTrashSharp onClick={()=>deletepost(id)}/>
           </button>
         </div>
-        <img src={image} alt="" className="w-auto" />
-        <div className="p-2 w-full">
+        <img src={image} alt="" className="w-auto object-cover" />
+        <div className="p-2 w-full ">
           <h2 className="text-black">user:{username}</h2>
           <p className="text-black">date:{time}</p>
           <p className="text-black">desc:{content}</p>

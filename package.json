@@ -1,7 +1,7 @@
 {
   "name": "front-end",
   "private": true,
-  "proxy":"https://healthy-impressed.onrender.com/",
+  "proxy": "https://healthy-impressed.onrender.com/",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
