@@ -26,7 +26,7 @@ const ActivityCard = () => {
 
 
   useEffect(() => {
-    if(auth.user) {
+    if(auth.user.userId) {
       // console.log('auth.user.userId :>> ', auth.user.userId);
       loadData(auth.user.userId)
     };
