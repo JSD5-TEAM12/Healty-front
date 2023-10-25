@@ -1,6 +1,6 @@
 import React from 'react';
 import * as Io5Icons from 'react-icons/io5';
-import { useAuth } from '../../auth/Authcontext';
+import { useAuth } from '../../auth/AuthContext';
 
 export const Sidebar = () => {
     const auth = useAuth();

@@ -64,7 +64,7 @@ const ActivityCard = () => {
                   {/* <div className='w-[40%]'>{currentPicture}</div> */}
                   <div className="text-white">
                     Title:
-                    <span className="text-pink-600 border border-white-800"> {item.title}</span>
+                    <span className="text-pink-600"> {item.title}</span>
                     Activity type:
                     <span className="text-pink-600"> {item.title}</span>
                     <br />
