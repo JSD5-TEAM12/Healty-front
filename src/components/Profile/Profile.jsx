@@ -38,11 +38,12 @@ const Profile = () => {
 
 
   return (
-    <main className='w-full  set-index set-top0 set-bg '>
-    
+    <main className='w-full h-[101%] set-index set-top0 set-bg'>
+     
+     
       <section className='relative set-index '>
         <img className='blur-sm xl:hidden ' src={profile_user} alt="profile_user" />
-        <div className='overflow-hidden flex justify-center absolute bottom-[-30px] left-[50%] translate-x-[-50%] xl:bottom-[-350px] '>
+        <div className='overflow-hidden flex justify-center absolute bottom-[-30px] left-[50%] translate-x-[-50%] xl:bottom-[-300px] '>
           <img src={profile_user} className='w-[180px] rounded-full border-4 h-[180px] border-pink-500 ' alt="profile_user" />
         </div>
       </section>
