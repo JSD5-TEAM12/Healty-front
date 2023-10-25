@@ -6,12 +6,13 @@ import avatar from '../../assets/img/avatar.svg'
 import axios from "axios";
 import AxiosServices from "../../services/AxiosServices";
 
+const api = import.meta.env.VITE_APP_BACKEND_URL
 
 function Feed() {
   const [dataPost,setdataPost] = useState([]);
 
   useEffect(()=>{
-    AxiosServices('GET','http://localhost:8050/read_post',{}).then(async (res)=>{
+    AxiosServices('GET',api + '/read_post',{}).then(async (res)=>{
       const response = await res
       console.log(response)
       setdataPost(response)
@@ -21,7 +22,7 @@ function Feed() {
   console.log('dataPOST',dataPost)
 
   const deletePost = (id) =>{
-    AxiosServices('DELETE',`http://localhost:8050/delete_post/${id}`,{})
+    AxiosServices('DELETE', api + '/delete_post/' + id,{})
     
   }
 

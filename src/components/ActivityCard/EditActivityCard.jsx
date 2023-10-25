@@ -1,157 +1,146 @@
-import React, { useEffect, useState } from "react"
-import { updated, list } from "../SelectActivity/ActivityFunc"
-import { useActivityContext } from "../function"
-import { useParams, useNavigate } from "react-router-dom"
+import React, { useEffect, useState } from "react";
+import { updated, list } from "../SelectActivity/ActivityFunc";
+import { useParams, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 //try
 // import { useAuth } from "../../auth/AuthContext"
 
 const EditActivityCard = () => {
-  const { currentActivity } = useActivityContext()
-  const {id} = useParams()
-  
-  const navigate = useNavigate()
+  const { id } = useParams();
+
+  const navigate = useNavigate();
   // const auth = useAuth()
 
   const [updateData, setUpdateData] = useState({
-    // user_id: "6532a6c0246ea32353b3565d",
-    // _id: '',
-    // user_id: auth.user.userId,
     id: id,
-    updateTitle: '',
-    updateType: '',
-    updateDesc: '',
-    updateDate: '',
-    updateDuration: '',
-  })
+    updateTitle: "",
+    updateType: "",
+    updateDesc: "",
+    updateDate: "",
+    updateDuration: "",
+  });
 
-
-  // console.log('update data : ', updateData)
-
-  const getdata = async (id)=>{
+  const getdata = async (id) => {
     try {
-      const response = await list(id)
-      setUpdateData({updateTitle: response.title,
-      updateType:response.type,
-      updateDesc: response.desc,
-      updateDate: response.date,
-      updateDuration: response.duration})
-  
-      console.log('response Tong :',response);
+      const response = await list(id);
+      setUpdateData({
+        updateTitle: response.title,
+        updateType: response.type,
+        updateDesc: response.desc,
+        updateDate: response.date,
+        updateDuration: response.duration,
+      });
+
+      console.log("response Tong :", response);
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
-useEffect(()=>{
-  getdata(id)
-},[])
-
-  // const form = new FormData();
-  //       for (let key in data) {
-  //         form.append(key, data[key]);
-  //       }
-  //   if (!id) {
-  //     console.log('no params')
-  //   } 
-  
-  // console.log('auth.user :>> ', auth.user);
-
-  // useEffect(() => {
-  //   if(!id) console.log('id in useEffect >>', id)
-  //   loadData(id);
-  // }, [])
-
-
-  // const loadData = async (id) => {
-  //   console.log('edit load id',id)
-  //   read(id)
-  //     .then((res) => {
-  //       setUpdateData(res.data)
-  //       console.log('res :', res)
-  //   })
-  //     .catch((err)=>console.log(err))
-  // }
-//   console.log(data)
+  };
+  useEffect(() => {
+    getdata(id);
+  }, []);
 
   const handleChange = (e) => {
     setUpdateData({
-        ...updateData,
-        [e.target.name]:e.target.value
-    })
-  }
+      ...updateData,
+      [e.target.name]: e.target.value,
+    });
+  };
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     // console.log('updated id >> ',id)
-    updated(id,updateData)
+    updated(id, updateData)
       .then((res) => {
-        console.log(res)
-        navigate('/ActivityCard')
+        console.log(res);
+        navigate("/ActivityCard");
       })
       .catch((err) => console.log(err));
-  }
+  };
 
   return (
-    <>
-    <form onSubmit={handleSubmit} className="h-screen mt-32"> 
-  <div className="w-[100%] flex justify-center items-center">
-    {/* <div className="lg:w-[30%] border border-white w-[60%] text-center mt-8">
-      {currentPicture}
-    </div> */}
-  </div>
-    <div className="lg:w-[100%] flex flex-col justify-center items-center">
-      <div className="flex justify-center mt-4">
-      <input type="text" name="title" id="title" className="rounded bg-pink-600 text-zinc-300 py-2 text-center text-xl mr-2"
-        placeholder="Title" value={updateData.title} onChange={handleChange}/>
-        <input className="rounded bg-pink-600 text-zinc-300 py-2 text-center text-xl" 
-          value={updateData.updateType}
-          readOnly/>
-      </div>
-      <div className="flex justify-center">
-        <textarea
-          rows="3"
-          cols="44"
-          placeholder="Description"
-          id="desc"
-          name="updateDesc"
-          value={updateData.updateDesc}
-          onChange={handleChange}
-          className="p-2 mt-4 rounded bg-zinc-700 text-zinc-300"
-        ></textarea>
-      </div>
-      <div className="mt-4 flex h-[40px] justify-center">
-        <input
-          type="date"
-          id="date"
-          name="updateDate"
-          value={updateData.updateDate}
-          onChange={handleChange}
-          className="pl-2 rounded bg-zinc-700 text-zinc-300 w-[180px]"
-        />
-        <select
-          id="duration"
-          name="updateDuration"
-          value={updateData.updateDuration}
-          onChange={handleChange}
-          className="ml-3 pl-1 rounded bg-zinc-700 text-zinc-300 w-[125px]"
-        >
-          <option value="none" disabled hidden>
-            duration
-          </option>
-          <option value="10">10 Mins</option>
-          <option value="20">20 Mins</option>
-          <option value="30">30 Mins</option>
-          <option value="40">40 Mins</option>
-          <option value="50">50 Mins</option>
-          <option value="60">60 Mins</option>
-        </select>
-      </div>
-      </div>
-    <div className="flex justify-center items-center mt-12">
-    <button onClick={handleSubmit} className="bg-zinc-600 rounded p-1 px-2 hover:bg-pink-600">Save Change</button>
-    </div>
-  </form> 
-    </>
-  )
-}
+    <main className="flex flex-col items-center h-screen mt-12">
+      <h1 className="text-4xl font-bold my-12">Edit Activity Card</h1>
+      <form
+        onSubmit={handleSubmit}
+        className=" rounded-3xl w-[80%] lg:w-[50%] bg-black border border-pink-600 
+    md:rounded-2xl p-12"
+      >
+        <div className="lg:w-[100%] flex flex-col justify-between items-center">
+          <div className="flex justify-center mt-4 w-[60%]">
+            <input
+              className="text-zinc-300 bg-transparent text-center text-2xl"
+              value={updateData.updateType}
+              readOnly
+            />
+            <input
+              type="text"
+              name="updateTitle"
+              id="title"
+              className="rounded bg-pink-600 
+          text-zinc-300 text-center text-xl"
+              placeholder="Title"
+              value={updateData.updateTitle}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="flex justify-center">
+            <textarea
+              rows="3"
+              cols="52"
+              placeholder="Description"
+              id="desc"
+              name="updateDesc"
+              value={updateData.updateDesc}
+              onChange={handleChange}
+              className="p-2 mt-4 rounded bg-zinc-700 text-zinc-300"
+            ></textarea>
+          </div>
+          <div className="mt-4 flex h-[40px] justify-center">
+            <input
+              type="date"
+              id="date"
+              name="updateDate"
+              value={updateData.updateDate}
+              onChange={handleChange}
+              className="pl-2 rounded bg-zinc-700 text-zinc-300 w-[235px]"
+            />
+            <select
+              id="duration"
+              name="updateDuration"
+              value={updateData.updateDuration}
+              onChange={handleChange}
+              className="ml-3 pl-1 rounded bg-zinc-700 text-zinc-300 w-[125px]"
+            >
+              <option value="none" disabled hidden>
+                duration
+              </option>
+              <option value="10">10 Mins</option>
+              <option value="20">20 Mins</option>
+              <option value="30">30 Mins</option>
+              <option value="40">40 Mins</option>
+              <option value="50">50 Mins</option>
+              <option value="60">60 Mins</option>
+            </select>
+          </div>
+          <div className="flex justify-center items-center mt-12 lg:w-[60%] w-[100%]">
+            <Link to={{ pathname: "/ActivityCard" }} className="w-[100%]">
+              <button className="bg-zinc-700 w-[50%] rounded-lg">Back</button>
+            </Link>
+            <div className="bg-gradient-to-br from-pink-600 to-indigo-700 rounded-lg flex w-[80%] ml-2">
+              <div className="w-[100%]">
+                <div className="text-white text-xl hover:bg-pink-600 w-[100%] h-[100%] rounded-lg flex justify-center items-center">
+                  <div className="bg-black rounded-lg w-[98%] h-[95%] flex justify-center items-center">
+                    <button onClick={handleSubmit}>Save Change</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </main>
+  );
+};
 
 export default EditActivityCard;

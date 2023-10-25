@@ -29,12 +29,6 @@ export const Sidebar = () => {
             icons: <Io5Icons.IoHeartCircleOutline />,
             cName: 'nav-text',
         },
-        {
-            title: 'Advice',
-            path: '/Advice',
-            icons: <Io5Icons.IoInformationCircleOutline />,
-            cName: 'nav-text',
-        },
         // {
         //     title: 'Logout',
         //     path: '/Logout',
