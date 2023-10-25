@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 import { inputStyles } from "./inputStyles"; // Import the styles
 import "./Login.css";
 // import
-import { useAuth } from "../../auth/Authcontext";
+import { useAuth } from "../../auth/AuthContext";
 
 const Login = () => {
   const [username, setUserName] = useState("");
