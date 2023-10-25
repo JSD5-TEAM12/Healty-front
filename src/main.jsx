@@ -12,7 +12,6 @@ import ActivityCard from "./components/ActivityCard/ActivityCard.jsx";
 import SelectActivity from "./components/SelectActivity/SelectActivity.jsx";
 import ActivityForm from "./components/SelectActivity/ActivityForm.jsx";
 import EditActivityCard from "./components/ActivityCard/EditActivityCard.jsx";
-import Advice from "./components/Advice.jsx";
 import Logout from "./components/Logout.jsx";
 import Layout from "./components/Layout.jsx";
 import Home from "./components/Home/Home.jsx";
@@ -64,14 +63,6 @@ const router = createBrowserRouter([
         element: (
           <AuthProtectedRoute>
             <ActivityCard />
-          </AuthProtectedRoute>
-        ),
-      },
-      {
-        path: "/Advice",
-        element: (
-          <AuthProtectedRoute>
-            <Advice />
           </AuthProtectedRoute>
         ),
       },

@@ -6,6 +6,8 @@ import { read, del } from "../SelectActivity/ActivityFunc"
 import EditActivityCard from "./EditActivityCard"
 // import Auth
 import { useAuth } from "../../auth/AuthContext"
+import { IoTrash } from "react-icons/io5"
+import { IoPencil } from "react-icons/io5"
 
 const ActivityCard = () => {
   //try
@@ -13,23 +15,16 @@ const ActivityCard = () => {
   const auth = useAuth()
   // console.log('auth.user :>> ', auth.user);
 
-  // const params = useParams()
-  // const [data, setData] = useState({
-  //   user_id: "6532a6c0246ea32353b3565d",
-  //   type: '',
-  //   desc: '',
-  //   date: '',
-  //   duration: '',
-  // })
-
   const [data, setData] = useState([]);
+  //try
+  const [success, setSuccess] = useState(false);
 
   useEffect(() => {
-    if(auth.user.userId) {
-      console.log('auth.user.userId :>> ', auth.user.userId);
+    if(auth.user) {
+      console.log('auth.user.userId :>> ', auth.user);
       loadData(auth.user.userId)
-    };
-  }, [data]);
+    }
+  }, [auth.user, success]);
 
   const loadData = async (id) => {
     console.log('id :>> ', id);
@@ -39,57 +34,60 @@ const ActivityCard = () => {
         setData(res);
       })
       .catch((err) => console.log(err));
-  };
-
+  }
 
   const handleRemove = async (id) => {
     del(id)
       .then((res) => {
         console.log(res);
-        loadData();
+        loadData()
+        setSuccess(prev => !prev)
       })
       .catch((err) => console.log(err));
-  };
+  }
 
+  data.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+  
   return (
-    <div className="flex flex-col justify-center items-center">
-      <div className="border border-white-800 w-[70%] md:w-[60%] mt-12 overflow-y-auto lg:flex flex-col items-center justify-center ">
+    <div className="flex flex-col items-center h-screen">
+      <h1 className="text-4xl bg-pink-600 px-12 rounded mt-12 font-bold">Activity Card</h1>
+      <div className=" w-[80%] mt-12 overflow-y-auto lg:grid grid-cols-3 gap-4">
         {data
           ? data.map((item, index) => (
-              <div className="border border-pink-600 rounded-3xl bg-zinc-800 mb-2 lg:w-[40%] xl:w-[40%]">
                 <div
                   key={index}
-                  className="p-2 flex items-center justify-center text-left ">
-                   
-                  {/* <div className='w-[40%]'>{currentPicture}</div> */}
+                  className="p-2 flex items-center justify-center text-left border border-pink-600 rounded-3xl bg-zinc-800 mb-2 
+                  lg:w-[100%]">
                   <div className="text-white">
-                    Title:
-                    <span className="text-pink-600"> {item.title}</span>
+                    <div className="bg-black rounded-xl px-4 py-2 my-2">Title:
+                    <span className="text-pink-600 ml-4 font-bold"> {item.title}</span>
+                    </div>
                     Activity type:
-                    <span className="text-pink-600"> {item.title}</span>
+                    <span className="text-pink-600"> {item.type}</span>
                     <br />
                     Description:{" "}
                     <span className="text-pink-600"> {item.desc}</span>
                     <br />
-                    Date: <span className="text-pink-600">{item.date}</span>
+                    Date: <span className="text-pink-600">{new Date(item.date).toLocaleDateString()}</span>
                     <br />
                     Duration:{" "}
                     <span className="text-pink-600">
                       {item.duration}
                     </span> mins <br />
-                    <div className="text-right">
+                    <div className="flex justify-end items-center ml-44">
                     <Link to={
-                 `/EditActivityCard/${item._id}`} className="">Edit</Link>
+                 `/EditActivityCard/${item._id}`} >
+                        <IoPencil className="text-3xl rounded mr-2 bg-gradient-to-br from-pink-600 to-indigo-700"/>
+                    </Link>
                       <button
                         onClick={() => handleRemove(item._id)}
-                        className="bg-zinc-700 rounded p-1 text-[14px]"
-                      >
-                        Delete
+                        className="">
+                        <IoTrash className="bg-zinc-700 rounded p-1 text-3xl"/>
                       </button>
                     </div>
                   </div>
                 </div>
-              </div>
             ))
           : null}
       </div>

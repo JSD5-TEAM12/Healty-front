@@ -9,12 +9,12 @@ import bicycle from '../../assets/img/bicycle.jpg'
 
 function ActivityForm() {
   const auth = useAuth()
-  const { currentActivity, currentPicture } = useActivityContext();
-  const [data, setData] = useState([]);
-  // const [form, setForm] = useState({});
+  const { currentActivity, currentPicture } = useActivityContext()
+  const [data, setData] = useState([])
   const [form, setForm] = useState({
     user_id: auth.user.userId,
-    type: currentActivity
+    type: currentActivity,
+    pic: currentPicture,
   });
   // try
   const navigate = useNavigate()
@@ -49,35 +49,25 @@ function ActivityForm() {
     } else {
       alert("Please fill out all fields.");
     }
-    console.log('Show form >>', form)
+    // console.log('Show form >>', form)
 
   }
-console.log('Show time :', form.date)
+// console.log('Show time :', form.date)
 
-  // const handleRemove = async (id) => {
-  //   remove(id)
-  //     .then((res)=> {
-  //       console.log(res)
-  //       loadData()
-  //     })
-  //     .catch((err) => console.log(err))
-  // }
 
   return (
     <>
-    <div className="w-[100%] h-screen">
+    <div className="h-screen">
      <div className="flex flex-col justify-center items-center">
   <form onSubmit={e => handleSubmit(e)}> 
   <div className="w-[100%] flex justify-center items-center">
-    <div className="lg:w-[30%] border border-white w-[50%] text-center mt-8">
+    <div className="lg:w-[30%] border border-white w-[60%] text-center mt-8">
       {currentPicture ? currentPicture : <img src={bicycle} />}
     </div>
   </div>
     <div className="lg:w-[100%] flex flex-col justify-center items-center">
       <div className="flex justify-center mt-4">
-        <input className="rounded bg-pink-600 text-zinc-300 p-2 text-center mt-4 mr-2" readOnly
-          name="type"
-          value={currentActivity}/>
+        <div className="text-zinc-300 p-2 text-2xl font-bold border-b-2 border-pink-600 text-center mt-4 mr-4" >{currentActivity}</div>
           <input type="text" name="title" id="title" className="p-2 mt-4 rounded bg-zinc-700 text-zinc-300"
         placeholder="Title" onChange={e => handleChange(e)}/>
       </div>
