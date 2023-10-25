@@ -21,6 +21,7 @@ import Login from "./components/Login/Login.jsx"
 // 
 import { AuthProvider } from "./auth/Authcontext.jsx";
 import { ActivityContextProvider } from "./components/function.jsx";
+import Feed from "./components/Feed/Feed.jsx";
 
 
 // for token or login

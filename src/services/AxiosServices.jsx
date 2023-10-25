@@ -14,12 +14,13 @@ const AxiosServices = async (method, url, body) => {
             method: method,
             url: url,
             data: body,
-            headers:{
-            authorization: `Bearer ${token}`
+            headers: {
+                'Content-Type': 'multipart/form-data',
+                'Authorization': `Bearer ${token}`,
          }
         });
 
-        console.log('response in axios services :>> ', response.data);
+        // console.log('response in axios services :>> ', response.data);
 
         return response.data;
     } catch (error) {

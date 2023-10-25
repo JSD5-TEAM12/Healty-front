@@ -1,7 +1,8 @@
 import React from "react";
 import usePost from "../../hook/usePost";
-import avatar from "../../assets/img/avatar.svg"
 import { IoTrashSharp } from "react-icons/io5";
+import Modal from "./Modal";
+import avatar from '../../assets/img/avatar.svg'
 
 function Feed() {
   const { create, update, get, remove } = usePost();
@@ -24,27 +25,18 @@ const PostInput = () => {
     <>
       <div className="w-[100%]">
       <div className="text-white flex justify-center items-center w-[90%]">
-        <img src={avatar} alt="Your Avatar" className="rounded-3xl" />
-        <div className="mx-4 w-[80%]">
-          <textarea
-            id="postInput"
-            className="rounded-xl w-[80%] text-white bg-transparent border border-white"
-            placeholder="What's on your mind?"
-          ></textarea>
+      <img src={avatar} alt="Your Avatar" className="rounded-3xl" />
+        <Modal/>
         </div>
-
-        <div className="">
-          <button className="border border-white rounded-lg p-1 text-white">Post</button>
-        </div>
-      </div></div>
+      </div>
     </>
   );
 };
 
 const FeedData = ({ postData, removeData }) => {
-  const displayPost = postData.map((item) => {
+  const displayPost = postData.map((item,index) => {
     return (
-      <div className="">
+      <div className="" key={index}>
         <div className="mx-2">
           <PostFeed
             avatar={item.avatar}
