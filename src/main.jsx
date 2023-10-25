@@ -22,6 +22,7 @@ import UpdateProfile from "./components/Profile/UpdateProfile.jsx";
 // 
 import { AuthProvider } from "./auth/AuthContext.jsx";
 import { ActivityContextProvider } from "./components/function.jsx";
+import Feed from "./components/Feed/Feed.jsx";
 
 
 // for token or login
@@ -100,6 +101,12 @@ const router = createBrowserRouter([
         ),
       },
       {
+        path: "/Post",
+        element:(<AuthProtectedRoute>
+          <Feed />
+          </AuthProtectedRoute>),
+      },
+      {
         path: "/Chart",
         element: (
           <AuthProtectedRoute>
@@ -125,6 +132,7 @@ const router = createBrowserRouter([
     path: "/Login",
     element: <Login />,
   },
+  
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

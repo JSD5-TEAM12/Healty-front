@@ -1,66 +1,106 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
 import usePost from "../../hook/usePost";
-import avatar from "../../assets/img/avatar.svg"
 import { IoTrashSharp } from "react-icons/io5";
+import Modal from "./Modal";
+import avatar from '../../assets/img/avatar.svg'
+import axios from "axios";
+import AxiosServices from "../../services/AxiosServices";
+
 
 function Feed() {
-  const { create, update, get, remove } = usePost();
-  const postData = get();
+  const [dataPost,setdataPost] = useState([]);
+
+  useEffect(()=>{
+    AxiosServices('GET','http://localhost:8050/read_post',{}).then(async (res)=>{
+      const response = await res
+      console.log(response)
+      setdataPost(response)
+    })
+
+  },[])
+  console.log('dataPOST',dataPost)
+
+  const deletePost = (id) =>{
+    AxiosServices('DELETE',`http://localhost:8050/delete_post/${id}`,{})
+    
+  }
+
   return (
     <>
-      <div className="flex flex-col justify-center items-center">
-        <div className="flex justify-end text-white border-b-4 w-[70%] mr-8 mb-6">Feed</div>
-        <PostInput />
-        <div className="flex justify-center">
-          <FeedData postData={postData} removeData={remove} />
-        </div>
-      </div>
-    </>
+  <div className="flex flex-col justify-center items-center">
+    <div className="flex justify-end text-white border-b-4 w-[70%] mr-8 mb-6">Feed</div>
+    <PostInput />
+    <div className="flex justify-center">
+      {Array.isArray(dataPost) && dataPost.length > 0 ? (
+        dataPost.map((post) => (
+          <FeedData
+            key={post._id} // assuming _id is unique
+            dataPost={post}
+            deletePost={deletePost}
+          />
+        ))
+      ) : (
+        <p>No data available</p>
+      )}
+    </div>
+  </div>
+</>
   );
 }
 
 const PostInput = () => {
   return (
     <>
-      <div className="w-[100%]">
-      <div className="text-white flex justify-center items-center w-[100%]">
-        <img src={avatar} alt="Your Avatar" className="rounded-3xl" />
-        <div className="mx-4">
-          <textarea
-            id="postInput"
-            cols={50}
-            className="rounded-xl text-white bg-transparent border border-white"
-            placeholder="What's on your mind?"
-          ></textarea>
+      <div className="w-[100%] ">
+      <div className="text-white flex justify-center items-center w-[90%] ">
+      <img src={avatar} alt="Your Avatar" className="rounded-3xl" />
+        <Modal/>
         </div>
-        <div className="">
-          <button className="border border-white rounded-lg p-1 text-white">Post</button>
-        </div>
-      </div></div>
+      </div>
     </>
   );
 };
 
-const FeedData = ({ postData, removeData }) => {
-  const displayPost = postData.map((item) => {
-    return (
-      <div className="">
-        <div className="mx-2">
-          <PostFeed
-            avatar={item.avatar}
-            time={item.time}
-            image={item.image}
-            content={item.content}
-            username={item.username}
-            id={item.id}
-            removeData={removeData}
-          />
+const FeedData = ({dataPost,deletePost}) => {
+      return (
+        
+          <div className="" key={dataPost._id}>
+          <div className="mx-2">
+            <PostFeed
+              avatar={dataPost.image.url}
+              time={dataPost.date}
+              image={dataPost.image.url}
+              content={dataPost.desc}
+              username={dataPost.user_post_id}
+              id={dataPost._id}
+              deletepost={deletePost}
+              
+              
+              // removeData={removeData}
+            />
+          </div>
         </div>
-      </div>
-    );
-  });
-  return <>{displayPost}</>;
-};
+      );
+  }
+  // const displayPost = dataPost.map((item,index) => {
+  //   return (
+  //     <div className="" key={index}>
+  //       <div className="mx-2">
+  //         <PostFeed
+  //           avatar={item.image.url}
+  //           time={item.date}
+  //           image={item.image.url}
+  //           content={item.desc}
+  //           username={item.user_post_id}
+  //           id={item._id}
+  //           // removeData={removeData}
+  //         />
+  //       </div>
+  //     </div>
+  //   );
+  // });
+  // return <>{displayPost}</>;
+
 
 const PostFeed = ({
   avatar,
@@ -69,11 +109,12 @@ const PostFeed = ({
   content,
   username,
   id,
-  removeData,
+  deletepost
 }) => {
+  console.log('feed',content,username)
   return (
-    <div className="">
-      <div className="bg-white w-[100%] rounded-lg">
+    <div className="w-[40%]">
+      <div className="bg-white w-full rounded-lg ">
         <div className="bg-white bg-opacity-50 rounded-lg flex justify-between">
           <img
             src={avatar}
@@ -81,14 +122,15 @@ const PostFeed = ({
             className="rounded-3xl"
             width="20px"
           />
-          <button className="text-black" onClick={() => removeData(id)}>
-            <IoTrashSharp />
+          <button className="bg-black p-0.5 m-0.5 active:bg-gray-200 focus:outline-none  rounded shadow-md transition-transform transform hover:scale-95" >
+            <IoTrashSharp onClick={()=>deletepost(id)}/>
           </button>
         </div>
-        <img src={image} alt="" className="w-[100%]" />
-        <div>
-          <h2>{username}</h2>
-          <p>{content}</p>
+        <img src={image} alt="" className="w-auto object-cover" />
+        <div className="p-2 w-full ">
+          <h2 className="text-black">user:{username}</h2>
+          <p className="text-black">date:{time}</p>
+          <p className="text-black">desc:{content}</p>
         </div>
       </div>
     </div>
