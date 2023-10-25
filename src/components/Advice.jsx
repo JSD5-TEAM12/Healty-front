@@ -2,7 +2,7 @@ import React from 'react'
 
 const Advice = () => {
   return (
-    <div>Advice</div>
+    <div className='lg:w-[100%] flex justify-center h-screen'>Advice</div>
   )
 }
 

@@ -1,5 +1,4 @@
 import { createContext, useContext, useState,  } from "react";
-import bicycle from "../../src/assets/img/bicycle.jpg"
 
 const ActivityDataContext = createContext();
 
