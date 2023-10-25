@@ -55,7 +55,6 @@ function ActivityForm() {
   }
 console.log('Show time :', form.date)
 
-
   // const handleRemove = async (id) => {
   //   remove(id)
   //     .then((res)=> {
