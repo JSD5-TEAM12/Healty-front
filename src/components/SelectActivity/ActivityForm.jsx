@@ -4,17 +4,20 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { read, create} from "./ActivityFunc";
 import { useParams, useNavigate } from 'react-router-dom';
+import { useAuth } from "../../auth/Authcontext";
+
 
 function ActivityForm() {
+  const auth = useAuth()
   const { currentActivity, currentPicture } = useActivityContext();
   const [data, setData] = useState([]);
   // const [form, setForm] = useState({});
   const [form, setForm] = useState({
-    user_id: "6532a6c0246ea32353b3565d",
+    user_id: auth.user.userId,
     type: currentActivity,
-    desc: "",
-    date: "",
-    duration: "none",
+    // desc: "",
+    // date: "",
+    // duration: "none",
   });
   // try
   const navigate = useNavigate()
@@ -42,7 +45,7 @@ function ActivityForm() {
     if (form.type && form.desc && form.date && form.duration !== "none") {
       create(form)
         .then((res) => {
-          loadData();
+          loadData()
           //try
           navigate('/ActivityCard')
         })
@@ -77,7 +80,7 @@ console.log('Show time', form.date)
   </div>
     <div className="lg:w-[100%] flex flex-col justify-center items-center">
       <div className="flex justify-center mt-4">
-        <input className="rounded bg-pink-600 text-zinc-300 py-2 text-center text-xl" 
+        <input className="rounded bg-pink-600 text-zinc-300 py-2 text-center text-xl" readOnly
           value={currentActivity}/>
       </div>
       <div className="flex justify-center">

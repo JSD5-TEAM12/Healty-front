@@ -15,6 +15,11 @@ export const ActivityContextProvider = ({ children }) => {
     setCurrentActivity(activity)
   };
 
+  const [createsuccess , setCreateSuccess] = useState(false)
+  const created = (data) =>{
+    setCreateSuccess(prev => !prev)
+  }
+
   //try
   const [currentPicture, setCurrentPicture] = useState();
     console.log(currentPicture)
@@ -28,6 +33,7 @@ export const ActivityContextProvider = ({ children }) => {
   const setData = (data) => {
     setCurrentData(data)
   };
+
 
   return (
     <ActivityDataContext.Provider value={{ currentActivity, setActivity, currentPicture, setPicture, currentData, setData }}>

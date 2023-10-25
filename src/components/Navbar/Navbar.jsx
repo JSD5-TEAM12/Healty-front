@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import * as Io5Icons from "react-icons/io5";
 import { Link, useNavigate, redirect } from "react-router-dom";
 import { Navigate } from 'react-router';
@@ -13,7 +13,7 @@ import { useAuth } from "../../auth/Authcontext";
 const Navbar = () => {
   const [sidebar, setSidebar] = useState(false);
   const showSidebar = () => setSidebar(!sidebar);
-  const [isLogout , setIsLogout] = useState(false)
+  const [isLogout, setIsLogout] = useState(false)
 
   const auth = useAuth();
   const navigate = useNavigate()
@@ -25,10 +25,10 @@ const Navbar = () => {
     return redirect('/Getstart');
   };
 
-  useEffect(()=>{
-    if(!localStorage.getItem('token')) redirect('/Getstart')
+  useEffect(() => {
+    if (!localStorage.getItem('token')) redirect('/Getstart')
 
-  },[auth.user,isLogout])
+  }, [auth.user, isLogout])
 
   console.log('auth :>> ', auth.user);
 
@@ -44,9 +44,9 @@ const Navbar = () => {
         </div>
         <nav
           className={`lg:hidden absolute top-0 ${sidebar
-              ? "translate-x-0 transition-transform duration-500 w-full bg-black bg-opacity-40 backdrop-blur-lg"
-              : "-translate-x-full transition-transform duration-700"}`}>
-          <ul className="w-screen flex flex-col items-center text-white text-2xl
+            ? "translate-x-0 transition-transform duration-500 w-full bg-black bg-opacity-40 backdrop-blur-lg"
+            : "-translate-x-full transition-transform duration-700"}`}>
+          <ul className="w-screen flex flex-col items-center text-white text-2xl  h-screen 
         p-4 rounded mt-14">
             <li className="w-full h-20 flex justify-center items-center">
               <Link to="#" className="">
@@ -70,7 +70,7 @@ const Navbar = () => {
               {sidebarItems.map((item, index) => {
                 return (
                   <li key={index} className={item.cName}>
-                    <Link to={item.path} onClick={()=>showSidebar}>
+                    <Link to={item.path} onClick={() => showSidebar}>
                       <div className="flex items-center justify-between m-6 px-4 hover:bg-zinc-500 w-64 rounded text-2xl">
                         <button className="">{item.title}
                           {/* onClick={()=>console.log('test btn')} */}
@@ -81,6 +81,7 @@ const Navbar = () => {
                   </li>
                 );
               })}
+              <button className="text-xl text-white block text-center  w-full" onClick={() => handleLogout()}>log out</button>
             </div>
           </ul>
         </nav>
@@ -89,7 +90,7 @@ const Navbar = () => {
       {/* Desktop */}
       <IconContext.Provider value={{ color: "undefined" }} className="desktop ">
         <div className="lg:block hidden ">
-          <div className="flex justify-between mt-4 bg-black  bg-opacity-10 w-screen pr-6 py-2">
+          <div className="flex justify-between mt-4 bg-black bg-opacity-10 w-screen pr-6 py-2">
             <div>
               <img
                 className=""
@@ -104,20 +105,23 @@ const Navbar = () => {
                 </Link>
               </div>
             </div>
-            <img
-              className=" "
-              src={profile}
-              alt="Logo"
-              width="70"
-              height="70"
-            />
+            <Link to='/Profile'>
+              <img
+                className=" "
+                src={profile}
+                alt="Logo"
+                width="70"
+                height="70"
+              />
+            </Link>
+
           </div>
         </div>
 
         <nav
           className={`lg:block hidden absolute ${sidebar
-              ? "translate-x-0 transition-transform duration-500 "
-              : "-translate-x-full transition-transform duration-700"
+            ? "translate-x-0 transition-transform duration-500"
+            : "-translate-x-full transition-transform duration-700"
             }`}
         >
           <ul className="w-80 flex flex-col items-center bg-black bg-opacity-10 backdrop-blur-lg">
@@ -152,7 +156,7 @@ const Navbar = () => {
 
                 );
               })}
-              <button className="text-xl text-white block text-center  w-full" onClick={()=>handleLogout()}>log out</button>
+              <button className="text-xl text-white block text-center  w-full" onClick={() => handleLogout()}>log out</button>
             </div>
           </ul>
         </nav>
