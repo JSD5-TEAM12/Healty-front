@@ -3,14 +3,14 @@ import { updated, list } from "../SelectActivity/ActivityFunc"
 import { useActivityContext } from "../function"
 import { useParams, useNavigate } from "react-router-dom"
 //try
-import { useAuth } from "../../auth/AuthContext"
+// import { useAuth } from "../../auth/AuthContext"
 
 const EditActivityCard = () => {
   const { currentActivity } = useActivityContext()
   const {id} = useParams()
   
   const navigate = useNavigate()
-  const auth = useAuth()
+  // const auth = useAuth()
 
   const [updateData, setUpdateData] = useState({
     // user_id: "6532a6c0246ea32353b3565d",

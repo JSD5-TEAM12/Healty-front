@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useActivityContext } from "../function";
 import { Link } from "react-router-dom";
-import axios from "axios";
 import { read, create} from "./ActivityFunc";
-import { useParams, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from "../../auth/AuthContext";
 import bicycle from '../../assets/img/bicycle.jpg'
 
