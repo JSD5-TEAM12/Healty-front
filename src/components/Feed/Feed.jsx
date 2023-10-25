@@ -113,7 +113,7 @@ const PostFeed = ({
 }) => {
   console.log('feed',content,username)
   return (
-    <div className="w-[80%] ">
+    <div className="w-[40%]">
       <div className="bg-white w-full rounded-lg ">
         <div className="bg-white bg-opacity-50 rounded-lg flex justify-between">
           <img

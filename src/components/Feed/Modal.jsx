@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Navigate, useNavigate } from 'react-router-dom';
 import AxiosServices from '../../services/AxiosServices';
-import { useAuth } from '../../auth/Authcontext';
+import { useAuth } from '../../auth/AuthContext';
 
 
 function Modal() {
@@ -12,21 +12,7 @@ function Modal() {
   const navigate = useNavigate();
   const token = localStorage.getItem('token')
   console.log('token in modal',token)
-//   const createPost = async (textcontent,picture) =>{
-//     const reqCreate = {
-//         textcontent:textcontent,
-//         picture:picture
-//     };
-//     const form = new FormData()
-//     for (const key in reqCreate) {
-//     form.append(key, reqCreate[key]);
-//   }
 
-//   const response = await axios.post(import.meta.env.VITE_APP_BACKEND_URL + '/post',reqCreate)
-//   navigate('/Home')
-//   console.log(response)
-//   } 
-  
 const Auth = useAuth()
 
   const handleImageChange = (e) => {
