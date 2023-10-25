@@ -5,7 +5,7 @@ import { useActivityContext } from "../function"
 import { read, del } from "../SelectActivity/ActivityFunc"
 import EditActivityCard from "./EditActivityCard"
 // import Auth
-import { useAuth } from "../../auth/Authcontext"
+import { useAuth } from "../../auth/AuthContext"
 
 const ActivityCard = () => {
   //try
@@ -24,13 +24,12 @@ const ActivityCard = () => {
 
   const [data, setData] = useState([]);
 
-
   useEffect(() => {
     if(auth.user.userId) {
-      // console.log('auth.user.userId :>> ', auth.user.userId);
+      console.log('auth.user.userId :>> ', auth.user.userId);
       loadData(auth.user.userId)
     };
-  }, [auth.user]);
+  }, [data]);
 
   const loadData = async (id) => {
     console.log('id :>> ', id);
@@ -54,7 +53,7 @@ const ActivityCard = () => {
 
   return (
     <div className="flex flex-col justify-center items-center">
-      <div className=" w-[70%] md:w-[60%] mt-12 overflow-y-auto lg:flex flex-col items-center justify-center ">
+      <div className="border border-white-800 w-[70%] md:w-[60%] mt-12 overflow-y-auto lg:flex flex-col items-center justify-center ">
         {data
           ? data.map((item, index) => (
               <div className="border border-pink-600 rounded-3xl bg-zinc-800 mb-2 lg:w-[40%] xl:w-[40%]">
@@ -64,8 +63,10 @@ const ActivityCard = () => {
                    
                   {/* <div className='w-[40%]'>{currentPicture}</div> */}
                   <div className="text-white">
+                    Title:
+                    <span className="text-pink-600 border border-white-800"> {item.title}</span>
                     Activity type:
-                    <span className="text-pink-600"> {item.type}</span>
+                    <span className="text-pink-600"> {item.title}</span>
                     <br />
                     Description:{" "}
                     <span className="text-pink-600"> {item.desc}</span>
