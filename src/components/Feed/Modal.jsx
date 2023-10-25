@@ -10,7 +10,8 @@ function Modal() {
   const [textcontent,setContent] = useState();
   const [picture,setPicture] = useState();
   const navigate = useNavigate();
-
+  const token = localStorage.getItem('token')
+  console.log('token in modal',token)
 //   const createPost = async (textcontent,picture) =>{
 //     const reqCreate = {
 //         textcontent:textcontent,
@@ -53,22 +54,29 @@ const Auth = useAuth()
   const createPost = async (textcontent,picture,user_post_id) =>{
     const reqCreate = {
         user_post_id:Auth.user.userId,
-        textcontent:textcontent,
-        picture:picture
+        desc:textcontent,
+        image:picture
     };
-    console.log(reqCreate)
+    
     const form = new FormData()
     for (const key in reqCreate) {
     form.append(key, reqCreate[key]);
   }
-
-  const response = await AxiosServices('POST','http://localhost:8050/post',reqCreate)
+  console.log(form)
+  console.log('reqCreate',reqCreate)
+  
+  const config = {
+    headers: {
+      'authorization': `Bearer ${token}` // Assuming it's a Bearer token
+    }
+  };
+  const response = await axios.post('http://localhost:8050/post',reqCreate,config)
 //   navigate('/Home')
   console.log(response)
   } 
 
   return (
-    <form >
+    <form action='/post' method='POST'>
     <div className="p-2 w-full">
       
       {/* Modal toggle button */}
@@ -100,7 +108,7 @@ const Auth = useAuth()
                   <input
                     type="text"
                     placeholder="Content"
-                    className="w-full h-10 bg-black text-lg"
+                    className="w-[100%] h-10 bg-black text-lg"
                     onChange={(ev)=> setContent(ev.target.value)}
                   />
                   <input type="file"  onChange={handleImageChange}/>

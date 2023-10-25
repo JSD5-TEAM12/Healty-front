@@ -101,6 +101,12 @@ const router = createBrowserRouter([
         ),
       },
       {
+        path: "/Post",
+        element:(<AuthProtectedRoute>
+          <Feed />
+          </AuthProtectedRoute>),
+      },
+      {
         path: "/Chart",
         element: (
           // <AuthProtectedRoute>
@@ -126,6 +132,7 @@ const router = createBrowserRouter([
     path: "/Login",
     element: <Login />,
   },
+  
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
