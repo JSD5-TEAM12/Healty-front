@@ -14,6 +14,7 @@ function Modal() {
   console.log('token in modal',token)
 
 const Auth = useAuth()
+const api = import.meta.env.VITE_APP_BACKEND_URL
 
   const handleImageChange = (e) => {
     const selectedImage = e.target.files[0];
@@ -56,7 +57,7 @@ const Auth = useAuth()
       'authorization': `Bearer ${token}` // Assuming it's a Bearer token
     }
   };
-  const response = await axios.post('http://localhost:8050/post',reqCreate,config)
+  const response = await axios.post(import.meta.env.VITE_APP_BACKEND_URL + '/post',reqCreate,config)
 //   navigate('/Home')
   console.log(response)
   } 
