@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Navigate, useNavigate } from 'react-router-dom';
 import AxiosServices from '../../services/AxiosServices';
-import { useAuth } from '../../auth/Authcontext';
+import { useAuth } from '../../auth/AuthContext';
 
 
 function Modal() {
