@@ -4,7 +4,7 @@ import './Profile.css'  //import css
 
 const Profile = () => {
   return (
-    <div>Profile</div>
+    <div className='lg:w-[100%] flex justify-center h-screen'>Profile</div>
   )
 }
 

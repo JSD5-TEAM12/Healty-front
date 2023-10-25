@@ -53,10 +53,10 @@ function ActivityForm() {
     } else {
       alert("Please fill out all fields.");
     }
-    console.log('Show form', form)
+    console.log('Show form >>', form)
 
   }
-console.log('Show time', form.date)
+console.log('Show time :', form.date)
 
 
   // const handleRemove = async (id) => {
@@ -70,7 +70,7 @@ console.log('Show time', form.date)
 
   return (
     <>
-    <div className="w-[100%]">
+    <div className="w-[100%] h-screen">
      <div className="flex flex-col justify-center items-center">
   <form onSubmit={e => handleSubmit(e)}> 
   <div className="w-[100%] flex justify-center items-center">

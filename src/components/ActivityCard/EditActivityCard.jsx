@@ -90,7 +90,7 @@ useEffect(()=>{
 
   return (
     <>
-    <form onSubmit={handleSubmit}> 
+    <form onSubmit={handleSubmit} className="h-screen mt-32"> 
   <div className="w-[100%] flex justify-center items-center">
     {/* <div className="lg:w-[30%] border border-white w-[60%] text-center mt-8">
       {currentPicture}
