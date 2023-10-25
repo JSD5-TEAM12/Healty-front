@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import './Profile.css'  //import css
 import profile from '../../assets/img/swimming.jpg'
-import { Link } from 'react-router-dom'
 //component below 
 
 const Profile = () => {
