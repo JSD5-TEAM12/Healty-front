@@ -3,7 +3,7 @@ import { Link,useNavigate } from 'react-router-dom'
 // import profileIMG from '../../assets/img/profile.svg'
 import './UpdateProfile.css'
 import AxiosServices from '../../services/AxiosServices';
-import { useAuth } from '../../auth/Authcontext';
+import { useAuth } from '../../auth/AuthContext';
 import axios from 'axios';
 
 const UpdateProfile = () => {
