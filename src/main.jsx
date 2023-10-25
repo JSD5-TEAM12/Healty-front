@@ -11,6 +11,7 @@ import Profile from "./components/Profile/Profile.jsx";
 import ActivityCard from "./components/ActivityCard/ActivityCard.jsx";
 import SelectActivity from "./components/SelectActivity/SelectActivity.jsx";
 import ActivityForm from "./components/SelectActivity/ActivityForm.jsx";
+import EditActivityCard from "./components/ActivityCard/EditActivityCard.jsx";
 import Advice from "./components/Advice.jsx";
 import Logout from "./components/Logout.jsx";
 import Layout from "./components/Layout.jsx";
@@ -96,6 +97,14 @@ const router = createBrowserRouter([
         element: (
           <AuthProtectedRoute>
             <ActivityForm />
+          </AuthProtectedRoute>
+        ),
+      },
+      {
+        path: "/EditActivityCard/:id",
+        element: (
+          <AuthProtectedRoute>
+            <EditActivityCard />
           </AuthProtectedRoute>
         ),
       },

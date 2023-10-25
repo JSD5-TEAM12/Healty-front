@@ -11,7 +11,7 @@ const ActivityCard = () => {
   //try
   const { currentPicture } = useActivityContext()
   const auth = useAuth()
-  console.log('auth.user :>> ', auth.user);
+  // console.log('auth.user :>> ', auth.user);
 
   // const params = useParams()
   // const [data, setData] = useState({
@@ -27,7 +27,7 @@ const ActivityCard = () => {
 
   useEffect(() => {
     if(auth.user) {
-      console.log('auth.user.userId :>> ', auth.user.userId);
+      // console.log('auth.user.userId :>> ', auth.user.userId);
       loadData(auth.user.userId)
     };
   }, [auth.user]);
@@ -36,11 +36,12 @@ const ActivityCard = () => {
     console.log('id :>> ', id);
     read(id)
       .then((res) => {
-        console.log("res log data => : ",res);
+        console.log("res log data => : ",res.data);
         setData(res);
       })
       .catch((err) => console.log(err));
   };
+
 
   const handleRemove = async (id) => {
     del(id)
@@ -52,8 +53,8 @@ const ActivityCard = () => {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center h-screen">
-      <div className=" w-[70%] md:w-[60%] mt-12 h-[100vh] overflow-y-auto lg:flex flex-col items-center justify-center ">
+    <div className="flex flex-col justify-center items-center">
+      <div className=" w-[70%] md:w-[60%] mt-12 overflow-y-auto lg:flex flex-col items-center justify-center ">
         {data
           ? data.map((item, index) => (
               <div className="border border-pink-600 rounded-3xl bg-zinc-800 mb-2 lg:w-[40%] xl:w-[40%]">
@@ -76,7 +77,8 @@ const ActivityCard = () => {
                       {item.duration}
                     </span> mins <br />
                     <div className="text-right">
-                    <Link to={'/activities/edit/' + item._id} className="">Edit</Link>
+                    <Link to={
+                 `/EditActivityCard/${item._id}`} className="">Edit</Link>
                       <button
                         onClick={() => handleRemove(item._id)}
                         className="bg-zinc-700 rounded p-1 text-[14px]"

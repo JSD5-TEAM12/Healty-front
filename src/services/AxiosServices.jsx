@@ -15,11 +15,12 @@ const AxiosServices = async (method, url, body) => {
             url: url,
             data: body,
             headers:{
+            "Content-Type": "multipart/form-data",
             authorization: `Bearer ${token}`
          }
         });
 
-        console.log('response in axios services :>> ', response.data);
+        // console.log('response in axios services :>> ', response.data);
 
         return response.data;
     } catch (error) {

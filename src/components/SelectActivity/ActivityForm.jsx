@@ -15,9 +15,9 @@ function ActivityForm() {
   const [form, setForm] = useState({
     user_id: auth.user.userId,
     type: currentActivity,
-    desc: "",
-    date: "",
-    duration: "none",
+    // desc: "",
+    // date: "",
+    // duration: "none",
   });
   // try
   const navigate = useNavigate()
@@ -45,7 +45,7 @@ function ActivityForm() {
     if (form.type && form.desc && form.date && form.duration !== "none") {
       create(form)
         .then((res) => {
-          loadData();
+          loadData()
           //try
           navigate('/ActivityCard')
         })
@@ -70,17 +70,17 @@ console.log('Show time', form.date)
 
   return (
     <>
-    <div className="w-[100%] mt-6">
-     <div className="flex flex-col justify-center items-center ">
+    <div className="w-[100%]">
+     <div className="flex flex-col justify-center items-center">
   <form onSubmit={e => handleSubmit(e)}> 
   <div className="w-[100%] flex justify-center items-center">
-    <div className="lg:w-[30%] border border-white w-[60%] text-center mt-8">
+    <div className="lg:w-[30%] border border-white w-[50%] text-center mt-8">
       {currentPicture}
     </div>
   </div>
     <div className="lg:w-[100%] flex flex-col justify-center items-center">
       <div className="flex justify-center mt-4">
-        <input className="rounded bg-pink-600 text-zinc-300 py-2 text-center text-xl" 
+        <input className="rounded bg-pink-600 text-zinc-300 py-2 text-center text-xl" readOnly
           value={currentActivity}/>
       </div>
       <div className="flex justify-center">
