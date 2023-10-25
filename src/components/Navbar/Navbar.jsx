@@ -46,8 +46,8 @@ const Navbar = () => {
           className={`lg:hidden absolute top-0 ${sidebar
             ? "translate-x-0 transition-transform duration-500 w-full bg-black bg-opacity-40 backdrop-blur-lg"
             : "-translate-x-full transition-transform duration-700"}`}>
-          <ul className="w-screen flex flex-col items-center text-white text-2xl  h-screen 
-        p-4 rounded mt-14">
+          <ul className="w-screen flex flex-col items-center text-white text-2xl 
+        p-4 rounded mt-14 h-screen">
             <li className="w-full h-20 flex justify-center items-center">
               <Link to="#" className="">
                 <Io5Icons.IoCaretBackCircleSharp
@@ -64,16 +64,19 @@ const Navbar = () => {
               />
             </li>
             <div className="flex flex-col justify-center items-center ">
-              <h3 className="border-b-8 border-pink-600  w-full text-center mt-8 text-5xl">
+              <h3 className="border-b-8 border-pink-600 w-full text-center mt-8 text-5xl">
                 Menu
               </h3>
               {sidebarItems.map((item, index) => {
                 return (
                   <li key={index} className={item.cName}>
                     <Link to={item.path} onClick={() => showSidebar}>
-                      <div className="flex items-center justify-between m-6 px-4 hover:bg-zinc-500 w-64 rounded text-2xl">
-                        <button className="">{item.title}
-                          {/* onClick={()=>console.log('test btn')} */}
+                      <div className="m-6 px-4 hover:bg-zinc-500 w-64 
+                      rounded text-2xl flex justify-between">
+                        <button className="">
+                          {item.title}
+                        </button>
+                        <button className="">
                           {item.icons}
                         </button>
                       </div>
@@ -81,7 +84,11 @@ const Navbar = () => {
                   </li>
                 );
               })}
-              <button className="text-xl text-white block text-center  w-full" onClick={() => handleLogout()}>log out</button>
+              <div className="m-6 px-4 hover:bg-zinc-500 w-64 
+                      rounded text-2xl flex justify-between">
+              <button className="" onClick={() => handleLogout()}>log out</button>
+              <Io5Icons.IoLogOutOutline />
+              </div>
             </div>
           </ul>
         </nav>
@@ -124,7 +131,7 @@ const Navbar = () => {
             : "-translate-x-full transition-transform duration-700"
             }`}
         >
-          <ul className="w-80 flex flex-col items-center bg-black bg-opacity-10 backdrop-blur-lg">
+          <ul className="w-80 flex flex-col items-center bg-black bg-opacity-10 backdrop-blur-lg h-screen">
             <li className="">
               <Link to="#" className="lg:hidden">
                 <Io5Icons.IoCaretBackCircleSharp
@@ -156,7 +163,7 @@ const Navbar = () => {
 
                 );
               })}
-              <button className="text-xl text-white block text-center  w-full" onClick={() => handleLogout()}>log out</button>
+              <button className="hover:bg-zinc-500 w-64 rounded mt-8" onClick={() => handleLogout()}>log out</button>
             </div>
           </ul>
         </nav>

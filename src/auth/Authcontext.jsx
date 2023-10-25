@@ -3,7 +3,9 @@ import axios from 'axios'
 
 const AuthContext = createContext(null)
 export const AuthProvider = ({ children }) => {
-    const [user, setUser] = useState(null)
+    // const [user, setUser] = useState(null)
+    //try because user id is undefined
+    const [user, setUser] = useState('65342690a8ebbe16366bddbe')
 
     useEffect(() => {
         const tokenWithBearer = localStorage.getItem('token')
