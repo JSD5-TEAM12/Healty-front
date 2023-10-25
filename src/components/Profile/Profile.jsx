@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './Profile.css'  //import css
 import profile from '../../assets/img/swimming.jpg'
-import { useAuth } from '../../auth/Authcontext'
+import { useAuth } from '../../auth/AuthContext'
 import { Link } from 'react-router-dom'
 //component below 
 import AxiosServices from '../../services/AxiosServices'
