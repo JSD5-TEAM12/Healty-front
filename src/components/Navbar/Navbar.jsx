@@ -7,7 +7,7 @@ import { IconContext } from "react-icons";
 import logo from "../../assets/img/logo.svg"
 import whitelogo from "../../assets/img/whitelogo.svg";
 import profile from "../../assets/img/profile.svg";
-import { useAuth } from "../../auth/Authcontext";
+import { useAuth } from "../../auth/AuthContext";
 
 
 const Navbar = () => {
