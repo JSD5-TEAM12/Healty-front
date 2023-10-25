@@ -3,10 +3,6 @@ import axios from 'axios';
 const AxiosServices = async (method, url, body) => {
     try {
         const token = localStorage.getItem('token'); // Fetch the token from local storage
-        const headers = {
-            authorization: token,
-            'Content-Type': 'application/json',
-        };
         console.log('token :>> ', token);
 
         //set url
@@ -15,7 +11,8 @@ const AxiosServices = async (method, url, body) => {
             url: url,
             data: body,
             headers:{
-            "Content-Type": "multipart/form-data",
+            // "Content-Type": "multipart/form-data",
+            'Content-Type': 'application/json',
             authorization: `Bearer ${token}`
          }
         });
