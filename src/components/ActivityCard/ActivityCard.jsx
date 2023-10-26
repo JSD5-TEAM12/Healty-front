@@ -13,7 +13,6 @@ const ActivityCard = () => {
   //try
   const { currentPicture } = useActivityContext()
   const auth = useAuth()
-  // console.log('auth.user :>> ', auth.user);
 
   const [data, setData] = useState([]);
   //try
@@ -21,16 +20,13 @@ const ActivityCard = () => {
 
   useEffect(() => {
     if(auth.user) {
-      console.log('auth.user.userId :>> ', auth.user);
       loadData(auth.user.userId)
     }
   }, [auth.user, success]);
 
   const loadData = async (id) => {
-    console.log('id :>> ', id);
     read(id)
       .then((res) => {
-        console.log("res log data => : ",res.data);
         setData(res);
       })
       .catch((err) => console.log(err));
@@ -39,7 +35,6 @@ const ActivityCard = () => {
   const handleRemove = async (id) => {
     del(id)
       .then((res) => {
-        console.log(res);
         loadData()
         setSuccess(prev => !prev)
       })

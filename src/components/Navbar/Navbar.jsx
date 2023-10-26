@@ -22,7 +22,7 @@ const Navbar = () => {
   };
 
   useEffect(() => {
-    if (!localStorage.getItem("token")) redirect("/Getstart");
+    if (!localStorage.getItem("token")) navigate('/Getstart');
   }, [auth.user, isLogout]);
 
   console.log("auth :>> ", auth.user);

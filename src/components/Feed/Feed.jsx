@@ -14,12 +14,10 @@ function Feed() {
   useEffect(()=>{
     AxiosServices('GET',api + '/read_post',{}).then(async (res)=>{
       const response = await res
-      console.log(response)
       setdataPost(response)
     })
 
   },[])
-  console.log('dataPOST',dataPost)
 
   const deletePost = (id) =>{
     AxiosServices('DELETE', api + '/delete_post/' + id,{})
@@ -112,7 +110,6 @@ const PostFeed = ({
   id,
   deletepost
 }) => {
-  console.log('feed',content,username)
   return (
     <div className="w-[40%]">
       <div className="bg-white w-full rounded-lg ">

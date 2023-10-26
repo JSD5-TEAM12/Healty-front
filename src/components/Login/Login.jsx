@@ -20,15 +20,12 @@ const Login = () => {
 
   const auth = useAuth();
 
-  console.log("username => ", username, "password => ", password);
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    console.log("handleLogin is called");
 
     const response = await auth.login(username, password);
     if (localStorage.getItem("token")) navigate("/Home");
-    console.log(response);
   };
   3;
  

@@ -31,7 +31,6 @@ const EditActivityCard = () => {
         updateDuration: response.duration,
       });
 
-      console.log("response Tong :", response);
     } catch (error) {
       console.log(error);
     }
@@ -49,10 +48,8 @@ const EditActivityCard = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // console.log('updated id >> ',id)
     updated(id, updateData)
       .then((res) => {
-        console.log(res);
         navigate("/ActivityCard");
       })
       .catch((err) => console.log(err));

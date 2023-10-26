@@ -20,12 +20,10 @@ const UpdateProfile = () => {
   const [birthday, setBirthday] = useState("")
   const navigate = useNavigate()
   const userAuthen = useAuth()
-  console.log('gender :>> ', gender);
   const api = import.meta.env.VITE_APP_BACKEND_URL
 
   useEffect(() => {
     if (userAuthen.user) {
-      console.log('userAuthen :>> ', userAuthen.user.userId);
       const id = userAuthen.user.userId;
 
       AxiosServices("GET", api + '/profile/' + id,{})
