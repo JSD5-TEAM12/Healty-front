@@ -62,28 +62,29 @@ const SelectActivity = () => {
   ];
 
   return (
-    <>
-      <div className="flex justify-start items-center">
-        <div className="text-white border-b-4 w-[70%] ml-16 mt-8">
-          Select Activity
-        </div>
-      </div>
+    <section className="flex flex-col w-full max-w-5xl mx-auto gap-8">
+      <span className="text-left text-white border-b-4 lg:text-4xl text-base">
+        Select Activity
+      </span>
+
       <div className="w-full rounded-lg">
-        <div className="mt-4 text-5xl flex items-center justify-center">
+        <div className="mt-4 text-5xl flex items-center justify-center gap-4">
           {activitiesToDisplay.map((activity, index) => (
             <div
               key={index}
-              className={`text-white border border-white text-center rounded-lg flex flex-col justify-center
-              items-center p-6 text-xl w-[100px] h-[100px] ${
+              className={`text-white border border-white rounded-lg   ${
                 activity.name === currentActivity ||
                 activity.pic === currentPicture
-                  ? "bg-gradient-to-br from-pink-600 to-indigo-700 w-[140px] h-[140px] flex justify-center items-center"
-                  : "bg-zinc-700  flex justify-center items-center"
+                  ? "bg-gradient-to-br from-pink-500 to-indigo-700 w-1/4  p-8 h-fit scale-125 duration-700"
+                  : "bg-zinc-700  opacity-50 w-1/4 p-8 h-fit flex justify-center items-center duration-700 "
               }  mx-4`}
             >
               {" "}
-              <h3>{activity.name}</h3>
-              <div className="text-4xl">{activity.icon}</div>
+              <aside className="flex flex-col-reverse justify-center w-full gap-4 items-center">
+              <h3 className="text-2xl">{activity.name}</h3>
+              <div className="lg:text-8xl text-4xl">{activity.icon}</div>                
+              </aside>
+
             </div>
           ))}
         </div>
@@ -96,7 +97,7 @@ const SelectActivity = () => {
         handleAddClick={handleAddClick}
         currentPicture={currentPicture}
       />
-    </>
+    </section>
   );
 };
 export default SelectActivity;
