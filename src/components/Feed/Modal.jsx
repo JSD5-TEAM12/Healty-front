@@ -55,10 +55,11 @@ const api = import.meta.env.VITE_APP_BACKEND_URL
     }
   };
   const response = await axios.post(import.meta.env.VITE_APP_BACKEND_URL + '/post',reqCreate,config)
+  setIsModalOpen(prev=>!prev)
   } 
 
   return (
-    <form action='/post' method='POST'>
+    <form action='/post' method='POST' className='w-full'>
     <div className="p-2 w-full">
       
       {/* Modal toggle button */}
