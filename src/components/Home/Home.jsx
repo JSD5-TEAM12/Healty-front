@@ -8,12 +8,10 @@ import SelectActivity from '../SelectActivity/SelectActivity'
 const Home = () => {
   return (
     
-    <>
-    <main className='justify-center h-screen w-screen max-w-7xl mx-auto px-4  lg:px-0 overflow-hidden'>
+    <main className='justify-center h-screen w-screen max-w-7xl mx-auto px-4  lg:px-0  flex flex-col gap-4'>
       <Feed />
       <SelectActivity />
     </main>
-    </>
   )
 }
 
