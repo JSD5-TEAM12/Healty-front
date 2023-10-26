@@ -1,0 +1,14 @@
+.btn_button {
+    border: 2px solid transparent;
+    border-image: var(--btn-neon);
+    border-image-slice: 1;
+    transition: background 1s;
+    /* Apply the fade-in animation */
+
+}
+
+.btn_button:hover {
+    background: linear-gradient(90deg, var(--Pink500-Primaly) 0%, var(--Indigo700-Second) 100%);
+    background-size: cover;
+
+}
