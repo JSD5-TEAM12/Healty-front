@@ -29,7 +29,7 @@ function Feed() {
 
   return (
     <section className="flex flex-col w-full max-w-5xl mx-auto gap-8">
-      <span className="text-right text-white border-b-4">Feed</span>
+      <span className="text-right text-white border-b-4 lg:text-3xl text-base">Feed</span>
       <PostInput />
       <div className="flex justify-center overflow-auto">
         {Array.isArray(dataPost) && dataPost.length > 0 ? (
