@@ -1,48 +1,46 @@
 import React from "react";
 import * as Io5Icons from "react-icons/io5";
 import { Link } from "react-router-dom";
+import "./SelectActivity.css";
 
 export const Btn = ({handleLeftBtn, handleRightBtn, handleAddClick}) => {
   return (
-          <>
-        <div className="flex justify-center">
-          <div className="mt-4 bg-gradient-to-br from-pink-600 to-indigo-700 rounded-lg">
+        <main className="flex justify-center gap-16 my-5">
+          <article className="bg-gradient-to-br from-pink-600 to-indigo-700 rounded-lg">
             <button
-              className="text-white text-4xl hover:bg-pink-600 rounded-lg w-[100%] h-[100%] flex justify-center items-center"
+              className="text-white   hover:bg-pink-600 rounded-lg w-full  flex justify-center items-center p-0.5"
               onClick={handleLeftBtn}
             >
-              <div className="bg-black rounded-lg w-[95%] h-[95%] flex justify-center items-center">
-                <Io5Icons.IoCaretBack />
+              <div className="bg-zinc-900 rounded-lg">
+                <Io5Icons.IoCaretBack  className="lg:text-5xl"/>
               </div>
             </button>
-          </div>
+          </article>
   
-          <div className="bg-gradient-to-br from-pink-600 to-indigo-700 rounded-lg w-[60%] flex mx-5 mt-4">
+          <article className=" overflow-hidden rounded-md from-pink-600 to-indigo-700 w-full flex ">
             <Link
               to={{
                 pathname: '/ActivityForm'
               }}
               className="w-[100%]"
             >
-              <div className="text-white  text-2xl hover:bg-pink-600 w-[100%] rounded-lg flex justify-center items-center w-[100%] h-[100%]">
-                <div className="bg-black rounded-lg w-[98%] h-[94%] flex justify-center items-center">
-                 <button onClick={handleAddClick}> Add Activity</button>
+                <div className="w-full h-full flex justify-center items-center">
+                 <button onClick={handleAddClick} className="btn_button w-full h-full text-3xl"> Add Activity</button>
                 </div>
-              </div>
             </Link>
-          </div>
+          </article>
   
-          <div className="mt-4 bg-gradient-to-br from-pink-600 to-indigo-700 rounded-lg">
+          <article className="bg-gradient-to-br from-pink-600 to-indigo-700 rounded-lg">
             <button
-              className="text-white text-4xl text-2xl hover:bg-pink-600 rounded-lg w-[100%] h-[100%] flex justify-center items-center"
+              className="text-white   hover:bg-pink-600 rounded-lg w-full  flex justify-center items-center p-0.5"
               onClick={handleRightBtn}
             >
-              <div className="bg-black rounded-lg w-[95%] h-[95%] flex justify-center items-center">
-                <Io5Icons.IoCaretForward />
+              <div className="bg-zinc-900 rounded-lg">
+                <Io5Icons.IoCaretForward className="lg:text-5xl"/>
               </div>
             </button>
-          </div>
-        </div>
-      </>
+          </article>
+
+        </main>
   )
 }
