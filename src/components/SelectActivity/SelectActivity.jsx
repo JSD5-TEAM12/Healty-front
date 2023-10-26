@@ -63,7 +63,7 @@ const SelectActivity = () => {
 
   return (
     <section className="flex flex-col w-full max-w-5xl mx-auto gap-8">
-      <span className="text-left text-white border-b-4 lg:text-4xl text-base">
+      <span className="text-left text-white border-b-4 lg:text-3xl text-base">
         Select Activity
       </span>
 
