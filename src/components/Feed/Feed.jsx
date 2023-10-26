@@ -10,6 +10,7 @@ const api = import.meta.env.VITE_APP_BACKEND_URL
 
 function Feed() {
   const [dataPost,setdataPost] = useState([]);
+  const [dataUser, setUser] = useState([])
 
   useEffect(()=>{
     AxiosServices('GET',api + '/read_post',{}).then(async (res)=>{
@@ -74,33 +75,12 @@ const FeedData = ({dataPost,deletePost}) => {
               id={dataPost._id}
               deletepost={deletePost}
               
-              
-              // removeData={removeData}
             />
           </div>
         </div>
       );
   }
-  // const displayPost = dataPost.map((item,index) => {
-  //   return (
-  //     <div className="" key={index}>
-  //       <div className="mx-2">
-  //         <PostFeed
-  //           avatar={item.image.url}
-  //           time={item.date}
-  //           image={item.image.url}
-  //           content={item.desc}
-  //           username={item.user_post_id}
-  //           id={item._id}
-  //           // removeData={removeData}
-  //         />
-  //       </div>
-  //     </div>
-  //   );
-  // });
-  // return <>{displayPost}</>;
-
-
+ 
 const PostFeed = ({
   avatar,
   time,
@@ -111,9 +91,9 @@ const PostFeed = ({
   deletepost
 }) => {
   return (
-    <div className="w-[40%]">
-      <div className="bg-white w-full rounded-lg ">
-        <div className="bg-white bg-opacity-50 rounded-lg flex justify-between">
+    <div className="w-[200px]">
+      <div className="bg-zinc-500  w-[200px] h-[350px] rounded-xl">
+        <div className="bg-white bg-opacity-50 rounded-lg flex justify-between p-2">
           <img
             src={avatar}
             alt="Your Avatar"
