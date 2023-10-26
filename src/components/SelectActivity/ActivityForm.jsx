@@ -49,10 +49,8 @@ function ActivityForm() {
     } else {
       alert("Please fill out all fields.");
     }
-    // console.log('Show form >>', form)
 
   }
-// console.log('Show time :', form.date)
 
 
   return (

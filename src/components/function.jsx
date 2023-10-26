@@ -8,7 +8,6 @@ export const useActivityContext = () => {
 export const ActivityContextProvider = ({ children }) => {
 
   const [currentActivity, setCurrentActivity] = useState('Bicycle');
-    console.log(currentActivity)
 
   const setActivity = (activity) => {
     setCurrentActivity(activity)
@@ -21,14 +20,12 @@ export const ActivityContextProvider = ({ children }) => {
 
   //try
   const [currentPicture, setCurrentPicture] = useState();
-    console.log(currentPicture)
   const setPicture = (picture) => {
     setCurrentPicture(picture)
   };
 
   //try
   const [currentData, setCurrentData] = useState('');
-    console.log(currentData)
   const setData = (data) => {
     setCurrentData(data)
   };

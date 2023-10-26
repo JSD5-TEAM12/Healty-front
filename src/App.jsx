@@ -12,14 +12,14 @@ import SelectActivity from './components/SelectActivity/SelectActivity'
 const App = () => {
   const [dataUser , setDateUser] = useState("")
   const [error , setError] = useState("")
-
+  const api = import.meta.env.VITE_APP_BACKEND_URL
 
   useEffect(()=>{
     let abortController = new AbortController()
 
     const loadData = async ()=>{
       try{
-        let response = await axios.get('https://healthy-9onk.onrender.com/');
+        let response = await axios.get(api);
         setDateUser(response.data)
         setError("")
       } catch (error) {

@@ -19,7 +19,6 @@ const Profile = () => {
 
   useEffect(() => {
     if (userAuthen.user) {
-      console.log('userAuthen :>> ', userAuthen.user.userId);
       const id = userAuthen.user.userId;
 
       AxiosServices("GET", api + '/profile/' + id,{})
@@ -31,7 +30,6 @@ const Profile = () => {
         setHight(userData.height);
         setWeight(userData.weight);
         setProfile_user(userData.image)
-        console.log('res :>> ', res);
       })
     }
   }, [userAuthen.user])

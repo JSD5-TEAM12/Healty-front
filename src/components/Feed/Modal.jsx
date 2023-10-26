@@ -11,7 +11,6 @@ function Modal() {
   const [picture,setPicture] = useState();
   const navigate = useNavigate();
   const token = localStorage.getItem('token')
-  console.log('token in modal',token)
 
 const Auth = useAuth()
 const api = import.meta.env.VITE_APP_BACKEND_URL
@@ -49,8 +48,6 @@ const api = import.meta.env.VITE_APP_BACKEND_URL
     for (const key in reqCreate) {
     form.append(key, reqCreate[key]);
   }
-  console.log(form)
-  console.log('reqCreate',reqCreate)
   
   const config = {
     headers: {
@@ -58,8 +55,6 @@ const api = import.meta.env.VITE_APP_BACKEND_URL
     }
   };
   const response = await axios.post(import.meta.env.VITE_APP_BACKEND_URL + '/post',reqCreate,config)
-//   navigate('/Home')
-  console.log(response)
   } 
 
   return (
