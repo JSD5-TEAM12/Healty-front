@@ -6,7 +6,6 @@ export const Sidebar = () => {
     const auth = useAuth();
 
     const handleLogout = () => {
-        console.log('auth :>> ', auth);
         auth.logout();
     };
 
@@ -29,13 +28,6 @@ export const Sidebar = () => {
             icons: <Io5Icons.IoHeartCircleOutline />,
             cName: 'nav-text',
         },
-        // {
-        //     title: 'Logout',
-        //     path: '/Logout',
-        //     icons: <Io5Icons.IoLogOutOutline />,
-        //     cName: 'nav-text',
-        //     action: handleLogout(),
-        // },
     ];
 };
 

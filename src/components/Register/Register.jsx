@@ -29,17 +29,6 @@ const Register = () => {
   const [step, setStep] = useState(1);
   const navigate = useNavigate();
 
-  console.log('username :>> ', username);
-  console.log('password :>> ', password);
-  console.log('firstname :>> ', firstname);
-  console.log('lastname :>> ', lastname);
-  console.log('email :>> ', email);
-  console.log('image :>> ', image);
-  console.log('gender :>> ', gender);
-  console.log('height :>> ', height);
-  console.log('weight :>> ', weight);
-  console.log('birthday :>> ', birthday);
-
   const nextStep = () => {
     setStep(step + 1);
   };

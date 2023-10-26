@@ -15,7 +15,6 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    console.log("auth :>> ", auth);
     auth.logout();
     setIsLogout(true);
     return redirect("/Getstart");
@@ -24,8 +23,6 @@ const Navbar = () => {
   useEffect(() => {
     if (!localStorage.getItem("token")) navigate('/Getstart');
   }, [auth.user, isLogout]);
-
-  console.log("auth :>> ", auth.user);
 
   const sidebarItems = Sidebar();
 
