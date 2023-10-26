@@ -9,11 +9,9 @@ const Home = () => {
   return (
     
     <>
-    <main className='lg:w-[100%] flex justify-center h-screen'>
-    <div className=''>
+    <main className='justify-center h-screen w-screen max-w-7xl mx-auto px-4  lg:px-0 overflow-hidden'>
       <Feed />
       <SelectActivity />
-    </div>
     </main>
     </>
   )
