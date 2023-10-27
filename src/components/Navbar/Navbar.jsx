@@ -49,7 +49,7 @@ const Navbar = () => {
           className={` fixed top-0  w-full h-full xl:w-1/4  bg-black 
           ${
             sidebar
-              ? "translate-x-0 transition-transform duration-700 w-full bg-zinc-900/90 backdrop-blur-sm"
+              ? "translate-x-0 transition-transform duration-600 w-full bg-zinc-900/90 backdrop-blur-sm"
               : "-translate-x-full  bg-zinc-900/90 backdrop-blur-sm duration-700 ease-in-out"
           }`}
         >

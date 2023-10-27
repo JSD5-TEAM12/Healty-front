@@ -84,26 +84,25 @@ const api = import.meta.env.VITE_APP_BACKEND_URL
           aria-hidden="true"
           className="fixed top-0 left-0 right-0 z-50 w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full  bg-opacity-50"
         >
-          <div className="flex justify-center w-full">
-            <div className="relative">
-              <div className="relative bg-black rounded-lg shadow dark:bg-gray-700">
-                <div className="flex flex-col gap-4 justify-center p-4 w-full">
-                  <input
-                    type="text"
+          <div className="flex justify-center w-full  bg-black bg-opacity-50 rounded-2xl  h-screen ">
+            <div className="relative top-[25%] w-full px-5">
+              <div className="relative bg-zinc-800 rounded-lg  shadow-lg">
+                <div className="flex flex-col gap-4  p-4 w-full h-[200px]">
+                  <textarea
                     placeholder="Content"
-                    className="w-[100%] h-10 bg-black text-lg"
+                    className="w-[100%]  bg-zinc-200 rounded-md text-lg px-2 text-black"
+                    cols="30" rows="5"
                     onChange={(ev)=> setContent(ev.target.value)}
                   />
                   <input type="file"  onChange={handleImageChange}/>
                 </div>
-
                 <div className="flex justify-around pb-4">
                   <button
-                    className="bg-red-600 w-1/4 self-center rounded-md p-1 hover:bg-red-400 dark:border-gray-600"
+                    className="bg-zinc-600 w-1/4 self-center rounded-md p-1 hover:bg-red-400 dark:border-gray-600"
                     onClick={closeModal}
                   >Cancel</button>
                   <button
-                    className="bg-blue-600 w-1/4 self-center rounded-md p-1 hover:bg-blue-400 dark:border-gray-600" type='button' onClick={()=>createPost(textcontent,picture)}
+                    className="bg-pink-500 w-1/4 self-center rounded-md p-1 hover:bg-blue-400 dark:border-gray-600" type='button' onClick={()=>createPost(textcontent,picture)}
                   >Submit</button>
                 </div>
               </div>
