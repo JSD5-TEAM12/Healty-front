@@ -31,7 +31,7 @@ function Feed() {
     <section className="flex flex-col w-full max-w-5xl mx-auto gap-8">
       <span className="text-right text-white border-b-4 lg:text-3xl text-base">Feed</span>
       <PostInput />
-      <div className="flex justify-center overflow-auto">
+      <div className="flex justify-center overflow-auto  sm:justify-normal ">
         {Array.isArray(dataPost) && dataPost.length > 0 ? (
           dataPost.map((post) => (
             <FeedData
@@ -64,7 +64,7 @@ const PostInput = () => {
 const FeedData = ({ dataPost, deletePost }) => {
   return (
 
-    <div className="" key={dataPost._id}>
+    <div className="scroll-smooth scroll-ml-10 snap-start snap-x" key={dataPost._id}>
       <div className="mx-2">
         <PostFeed
           avatar={dataPost.image.url}

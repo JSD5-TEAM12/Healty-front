@@ -68,7 +68,7 @@ const SelectActivity = () => {
       </span>
 
       <div className="w-full rounded-lg">
-        <div className="mt-4 text-5xl flex items-center justify-center gap-4">
+        <div className=" mt-4 text-5xl flex items-center justify-center gap-4">
           {activitiesToDisplay.map((activity, index) => (
             <div
               key={index}
