@@ -180,7 +180,7 @@ const Register = () => {
                 className="bg-pink-500/80 hover:bg-pink-500 duration-200 h-16 w-full text-2xl"
                 type="button"
               >
-                Login Now!
+                Create User!
               </button>
             </div>
           )}
